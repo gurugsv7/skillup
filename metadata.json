@@ -1,0 +1,8 @@
+{
+  "name": "DECODE - AI Career Catalyst",
+  "description": "A high-fidelity career guidance platform for IT professionals featuring AI-powered roadmaps, resume optimization, and interview preparation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
