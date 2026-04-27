@@ -3,34 +3,35 @@ import React from 'react';
 
 interface Props {
   onStart: () => void;
+  onLogin: () => void;
 }
 
-const LandingView: React.FC<Props> = ({ onStart }) => {
+const LandingView: React.FC<Props> = ({ onStart, onLogin }) => {
   return (
     <div className="flex-1 h-full flex flex-col p-6 overflow-y-auto no-scrollbar pb-32">
       <header className="flex justify-between items-center mb-12 mt-6 shrink-0">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">D</div>
-          <span className="font-mono text-sm tracking-widest font-bold">DECODE</span>
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">Q</div>
+          <span className="font-mono text-sm tracking-widest font-bold">QUICKJOB</span>
         </div>
         <div className="flex gap-4">
-          <button className="text-xs font-mono text-gray-400">LOGIN</button>
-          <button className="text-xs font-mono text-primary font-bold">SIGN UP</button>
+          <button onClick={onLogin} className="text-xs font-mono text-gray-400 hover:text-white transition-colors">LOGIN</button>
+          <button onClick={onLogin} className="text-xs font-mono text-primary font-bold hover:text-neon-cyan transition-colors">SIGN UP</button>
         </div>
       </header>
 
       <section className="mb-12 shrink-0">
         <h1 className="text-5xl font-bold leading-[1.1] mb-6 tracking-tight">
-          Land Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-primary text-neon">Dream IT Job</span> with Confidence
+          Find Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-primary text-neon">Great Job</span> Easily
         </h1>
         <p className="text-gray-400 mb-8 text-lg leading-relaxed">
-          Curated job listings + company-specific interview prep for the next generation of tech talent.
+          Simple job listings and easy tips to help you get hired at top tech companies.
         </p>
         <button 
           onClick={onStart}
           className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 group transition-all"
         >
-          START YOUR JOURNEY
+          START NOW
           <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </button>
       </section>
@@ -52,9 +53,9 @@ const LandingView: React.FC<Props> = ({ onStart }) => {
         <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">How It Works</h3>
         <div className="space-y-6">
           {[
-            { n: '01', t: 'Choose career stage', d: 'Student, Graduate or Pro' },
-            { n: '02', t: 'Select target role', d: 'Choose from 50+ IT positions' },
-            { n: '03', t: 'Get Prep', d: 'Company-specific guidance' }
+            { n: '01', t: 'Tell us your level', d: 'Student, New Grad, or Pro' },
+            { n: '02', t: 'Pick a job type', d: 'Choose what you want to do' },
+            { n: '03', t: 'Get ready', d: 'Easy tips specifically for you' }
           ].map(step => (
             <div key={step.n} className="flex gap-4 items-start">
               <span className="text-primary font-mono font-bold">{step.n}</span>
@@ -79,7 +80,7 @@ const LandingView: React.FC<Props> = ({ onStart }) => {
       </section>
 
       <footer className="mt-auto pt-8 border-t border-white/5 text-[10px] text-gray-600 font-mono flex justify-between uppercase shrink-0">
-        <span>© 2024 ITCareerPath</span>
+        <span>© 2024 QuickJob</span>
         <div className="flex gap-4">
           <span>About</span>
           <span>Privacy</span>

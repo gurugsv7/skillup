@@ -12,23 +12,23 @@ const SuccessStoriesView: React.FC<Props> = ({ company, onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full overflow-y-auto no-scrollbar">
       <header className="p-6 shrink-0 pt-4">
-        <h1 className="text-3xl font-bold mb-1 text-white">Success Stories</h1>
-        <p className="text-xs text-gray-500 font-mono">Insights from candidates who cracked {company.name}</p>
+        <h1 className="text-3xl font-bold mb-1 text-white">Experience Stories</h1>
+        <p className="text-xs text-gray-500 font-mono">Stories from people who got hired at {company.name}</p>
       </header>
 
       <section className="px-6 mb-8">
         <div className="glass-panel p-4 rounded-xl flex justify-around border-neon-amber/30 bg-neon-amber/5">
           <div className="text-center">
             <div className="text-xl font-bold text-neon-amber">3.5m</div>
-            <div className="text-[8px] text-gray-500 uppercase">Avg Prep</div>
+            <div className="text-[8px] text-gray-500 uppercase">Prep Time</div>
           </div>
           <div className="text-center">
             <div className="text-xl font-bold text-neon-amber">250</div>
-            <div className="text-[8px] text-gray-500 uppercase">DSA Solved</div>
+            <div className="text-[8px] text-gray-500 uppercase">Questions</div>
           </div>
           <div className="text-center">
             <div className="text-xl font-bold text-neon-amber">40%</div>
-            <div className="text-[8px] text-gray-500 uppercase">Referral Rate</div>
+            <div className="text-[8px] text-gray-500 uppercase">Hire Rate</div>
           </div>
         </div>
       </section>
@@ -56,7 +56,7 @@ const SuccessStoriesView: React.FC<Props> = ({ company, onBack }) => {
                 <span className="text-gray-300">{story.prevExperience}</span>
               </div>
               <div className="flex justify-between text-xs border-b border-white/5 pb-2">
-                <span className="text-gray-500">Offer</span>
+                <span className="text-gray-500">Salary</span>
                 <span className="text-neon-cyan font-mono font-bold">{story.ctc}</span>
               </div>
             </div>
@@ -70,8 +70,8 @@ const SuccessStoriesView: React.FC<Props> = ({ company, onBack }) => {
               </p>
             </div>
 
-            <button className="w-full mt-4 py-3 text-[10px] font-mono tracking-widest text-gray-400 border border-white/5 rounded-lg hover:bg-white/5">
-              READ FULL INTERVIEW LOG
+            <button className="w-full mt-4 py-3 bg-primary/10 text-primary font-bold rounded-xl border border-primary/20 hover:bg-primary/20 transition-all text-[10px] font-mono tracking-widest uppercase">
+              READ STORY
             </button>
           </div>
         ))}

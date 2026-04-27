@@ -8,7 +8,7 @@ interface Props {
 
 const ChatView: React.FC<Props> = ({ onBack }) => {
   const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([
-    { role: 'model', text: 'Hello! I am your career catalyst. Ask me anything about job hunting, resume tuning, or tech interview preparation.' }
+    { role: 'model', text: 'Hi! I am here to help you. Ask me anything about finding jobs, fixing your resume, or preparing for interviews.' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,11 +37,11 @@ const ChatView: React.FC<Props> = ({ onBack }) => {
           parts: [{ text: m.text }]
         })),
         config: {
-          systemInstruction: "You are DECODE AI, a high-level career consultant for tech professionals. Provide advice in a futuristic, tech-savvy tone.",
+          systemInstruction: "You are QuickJob Assistant, a helpful and friendly job coach. Use simple, clear language and avoid complex tech jargon.",
         }
       });
       
-      const aiText = response.text || 'System error: Data stream interrupted.';
+      const aiText = response.text || 'Sorry, I am having trouble connecting.';
       setMessages(prev => [...prev, { role: 'model', text: aiText }]);
     } catch (error) {
       console.error(error);
@@ -68,7 +68,7 @@ const ChatView: React.FC<Props> = ({ onBack }) => {
         {loading && (
           <div className="flex justify-start">
             <div className="glass-panel p-4 rounded-2xl rounded-bl-none">
-              <span className="animate-pulse text-neon-cyan font-mono text-xs tracking-widest">DECRYPTING...</span>
+              <span className="animate-pulse text-neon-cyan font-mono text-xs tracking-widest">THINKING...</span>
             </div>
           </div>
         )}

@@ -20,11 +20,11 @@ const ProfileHubView: React.FC<Props> = ({ onSelectModule, onBack }) => {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              <span className="text-[10px] font-mono text-neon-cyan tracking-wider">SYSTEM ACTIVE</span>
+              <span className="text-[10px] font-mono text-neon-cyan tracking-wider">LIVE</span>
             </div>
             <h1 className="text-xl font-bold text-white leading-tight">
               Preparing for <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white">Senior Engineer</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-white">Your New Job</span>
             </h1>
           </div>
         </div>
@@ -38,14 +38,14 @@ const ProfileHubView: React.FC<Props> = ({ onSelectModule, onBack }) => {
       </section>
 
       <section className="space-y-6 shrink-0">
-        <h2 className="text-sm font-mono text-white tracking-widest border-l-2 border-neon-cyan pl-3 mb-6 uppercase">Module Selection</h2>
+        <h2 className="text-sm font-mono text-white tracking-widest border-l-2 border-neon-cyan pl-3 mb-6 uppercase">Quick Links</h2>
         <div onClick={() => onSelectModule('MOD_01')} className="iso-card border-neon-cyan/30 p-5 rounded-2xl group cursor-pointer hover:-translate-y-1">
-          <h3 className="text-lg font-bold text-white mb-2 text-neon text-neon-cyan">Application Guidance</h3>
-          <p className="text-xs text-gray-400 mb-4 font-mono leading-relaxed">Optimize your resume for ATS parsing.</p>
+          <h3 className="text-lg font-bold text-white mb-2 text-neon text-neon-cyan">Help with Applying</h3>
+          <p className="text-xs text-gray-400 mb-4 font-mono leading-relaxed">Fix your resume for top companies.</p>
         </div>
         <div onClick={() => onSelectModule('MOD_02')} className="iso-card border-neon-violet/30 p-5 rounded-2xl group cursor-pointer hover:-translate-y-1">
-          <h3 className="text-lg font-bold text-white mb-2 text-neon text-neon-violet">Interview Prep</h3>
-          <p className="text-xs text-gray-400 mb-4 font-mono leading-relaxed">Mock coding environments.</p>
+          <h3 className="text-lg font-bold text-white mb-2 text-neon text-neon-violet">Interview Practice</h3>
+          <p className="text-xs text-gray-400 mb-4 font-mono leading-relaxed">Get ready for real questions.</p>
         </div>
       </section>
     </div>

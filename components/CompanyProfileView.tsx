@@ -22,9 +22,9 @@ const CompanyProfileView: React.FC<Props> = ({ company, onAction, onBack }) => {
           </button>
         </div>
         <h1 className="text-4xl font-bold text-white mb-2 relative z-10">{company.name}</h1>
-        <p className="text-sm font-mono text-neon-cyan tracking-widest uppercase mb-6 relative z-10">Preparing for {company.name}</p>
+        <p className="text-sm font-mono text-neon-cyan tracking-widest uppercase mb-6 relative z-10">Get Ready for {company.name}</p>
         <button className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all relative z-10">
-          APPLY NOW
+          SHOW JOBS
         </button>
       </header>
 
@@ -37,7 +37,7 @@ const CompanyProfileView: React.FC<Props> = ({ company, onAction, onBack }) => {
         </section>
 
         <section className="glass-panel p-5 rounded-2xl">
-          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-6">Interview Timeline</h3>
+          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-6">Hiring Steps</h3>
           <div className="relative space-y-6 pl-4 border-l border-white/5">
             {company.timeline.map((t, idx) => (
               <div key={idx} className="relative">
@@ -58,8 +58,8 @@ const CompanyProfileView: React.FC<Props> = ({ company, onAction, onBack }) => {
           >
             <span className="material-symbols-outlined text-4xl text-neon-cyan opacity-50 group-hover:opacity-100 transition-opacity">description</span>
             <div>
-              <h4 className="font-bold text-white">Application Guide</h4>
-              <p className="text-[10px] text-gray-500 font-mono">Resume tips & Strategy</p>
+              <h4 className="font-bold text-white">How to Apply</h4>
+              <p className="text-[10px] text-gray-500 font-mono">Resume help and steps</p>
             </div>
           </button>
           
@@ -69,8 +69,8 @@ const CompanyProfileView: React.FC<Props> = ({ company, onAction, onBack }) => {
           >
             <span className="material-symbols-outlined text-4xl text-neon-violet opacity-50 group-hover:opacity-100 transition-opacity">terminal</span>
             <div>
-              <h4 className="font-bold text-white">Interview Prep</h4>
-              <p className="text-[10px] text-gray-500 font-mono">400+ Questions & Drills</p>
+              <h4 className="font-bold text-white">Interview Help</h4>
+              <p className="text-[10px] text-gray-500 font-mono">Questions and practice</p>
             </div>
           </button>
 
@@ -80,8 +80,8 @@ const CompanyProfileView: React.FC<Props> = ({ company, onAction, onBack }) => {
           >
             <span className="material-symbols-outlined text-4xl text-neon-amber opacity-50 group-hover:opacity-100 transition-opacity">auto_awesome</span>
             <div>
-              <h4 className="font-bold text-white">Success Stories</h4>
-              <p className="text-[10px] text-gray-500 font-mono">15 Insightful Case Studies</p>
+              <h4 className="font-bold text-white">Member Stories</h4>
+              <p className="text-[10px] text-gray-500 font-mono">Real hiring experiences</p>
             </div>
           </button>
         </section>

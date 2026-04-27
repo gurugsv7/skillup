@@ -21,8 +21,8 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
       <header className="px-6 pt-4 pb-2 shrink-0">
         <div className="flex gap-2 mb-4 overflow-x-auto no-scrollbar -mx-6 px-6">
-          <button className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-mono whitespace-nowrap">LOCATION: REMOTE</button>
-          <button className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-mono whitespace-nowrap">EXP: 0-3 YRS</button>
+          <button className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-mono whitespace-nowrap">REMOTE ONLY</button>
+          <button className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-mono whitespace-nowrap">0-3 YEARS EXP</button>
         </div>
 
         <div className="flex border-b border-white/5">
@@ -32,7 +32,7 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
               onClick={() => setActiveTab(t as any)}
               className={`px-4 py-3 text-[10px] font-mono tracking-widest transition-all ${activeTab === t ? 'text-neon-cyan border-b-2 border-neon-cyan bg-neon-cyan/5' : 'text-gray-500'}`}
             >
-              {t === 'TOP' ? 'TOP HIRING' : t}
+              {t === 'TOP' ? 'ALL HIRING' : t === 'FAANG' ? 'BIG TECH' : t}
             </button>
           ))}
         </div>
@@ -50,7 +50,7 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
                 <img src={c.logo} alt={c.name} className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col items-end">
-                <span className="text-[10px] font-mono text-neon-green bg-neon-green/10 px-2 py-0.5 rounded uppercase tracking-wider mb-2">Hiring Now</span>
+                <span className="text-[10px] font-mono text-neon-green bg-neon-green/10 px-2 py-0.5 rounded uppercase tracking-wider mb-2">Hiring</span>
                 <div className="flex text-neon-amber">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="material-symbols-outlined text-xs leading-none">star</span>
@@ -74,8 +74,8 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
             </div>
 
             <div className="flex gap-2">
-              <button className="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest hover:bg-white/10">View Jobs</button>
-              <button className="flex-1 py-2 rounded-lg bg-primary/20 border border-primary/40 text-primary text-[10px] font-mono uppercase tracking-widest hover:bg-primary/30">Interview Prep</button>
+              <button className="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest hover:bg-white/10">Show Jobs</button>
+              <button className="flex-1 py-2 rounded-lg bg-primary/20 border border-primary/40 text-primary text-[10px] font-mono uppercase tracking-widest hover:bg-primary/30">Get Ready</button>
             </div>
           </div>
         ))}

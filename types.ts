@@ -10,7 +10,8 @@ export enum AppView {
   SUCCESS_STORIES = 'success_stories',
   AI_CHAT = 'ai_chat',
   PROFILE_HUB = 'profile_hub',
-  JOB_LIST = 'job_list'
+  JOB_LIST = 'job_list',
+  AUTH = 'auth'
 }
 
 export enum UserLevel {

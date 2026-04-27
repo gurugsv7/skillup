@@ -11,29 +11,29 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full overflow-y-auto no-scrollbar">
       <header className="p-6 shrink-0 pt-4">
-        <h1 className="text-3xl font-bold mb-1 text-white">Mastery Protocol</h1>
-        <p className="text-xs text-gray-500 font-mono">How to apply for {company.name}</p>
+        <h1 className="text-3xl font-bold mb-1 text-white">How to Apply</h1>
+        <p className="text-xs text-gray-500 font-mono">Steps for {company.name}</p>
       </header>
 
       <div className="px-6 space-y-10 pb-24">
         <section>
-          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">01 // Channels</h3>
+          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">1. Where to apply</h3>
           <div className="grid grid-cols-2 gap-3">
             <button className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors">
               <span className="material-symbols-outlined text-neon-cyan mb-2">language</span>
-              <div className="text-[10px] font-bold text-white uppercase tracking-wider">Career Portal</div>
-              <div className="text-[8px] text-gray-500 mt-1 font-mono">DIRECT_LINK</div>
+              <div className="text-[10px] font-bold text-white uppercase tracking-wider">Company Site</div>
+              <div className="text-[8px] text-gray-500 mt-1 font-mono">OFFICIAL</div>
             </button>
             <button className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors">
               <span className="material-symbols-outlined text-neon-violet mb-2">link</span>
-              <div className="text-[10px] font-bold text-white uppercase tracking-wider">LinkedIn Hub</div>
+              <div className="text-[10px] font-bold text-white uppercase tracking-wider">LinkedIn</div>
               <div className="text-[8px] text-gray-500 mt-1 font-mono">NETWORKING</div>
             </button>
           </div>
         </section>
 
         <section>
-          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">02 // Resume Scan</h3>
+          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">2. Your Resume</h3>
           <div className="glass-panel rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/5 to-transparent"></div>
             <div className="absolute top-0 left-0 w-full h-1 bg-neon-cyan/50 animate-scan"></div>
@@ -41,7 +41,7 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
             <div className="flex justify-between items-end mb-6">
               <div>
                 <div className="text-2xl font-mono font-bold text-neon-cyan">87%</div>
-                <div className="text-[8px] text-gray-500 uppercase font-mono tracking-widest">Match Rating</div>
+                <div className="text-[8px] text-gray-500 uppercase font-mono tracking-widest">Resume Score</div>
               </div>
               <div className="w-12 h-12 bg-neon-cyan/10 rounded-lg flex items-center justify-center border border-neon-cyan/20">
                 <span className="material-symbols-outlined text-neon-cyan">analytics</span>
@@ -59,10 +59,10 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
         </section>
 
         <section>
-          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">03 // Referral Strategy</h3>
+          <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">3. Get a Referral</h3>
           <div className="space-y-4">
             <div className="glass-panel p-4 rounded-xl border-l-2 border-l-primary">
-              <h4 className="text-xs font-bold text-white mb-2 uppercase tracking-wider">LinkedIn Message Template</h4>
+              <h4 className="text-xs font-bold text-white mb-2 uppercase tracking-wider">Message Template</h4>
               <p className="text-[10px] text-gray-500 font-mono leading-relaxed bg-black/40 p-3 rounded italic">
                 "Hi [Name], I'm a developer deeply interested in {company.name}'s mission. I see you're working on [Project]..."
               </p>

@@ -1,8 +1,9 @@
 {
-  "name": "DECODE - AI Career Catalyst",
-  "description": "A high-fidelity career guidance platform for IT professionals featuring AI-powered roadmaps, resume optimization, and interview preparation.",
+  "name": "QuickJob - Simple Career Help",
+  "description": "An easy-to-use job search and interview help app for everyone looking for a career in IT.",
   "requestFramePermissions": [
     "camera",
     "microphone"
-  ]
+  ],
+  "majorCapabilities": []
 }

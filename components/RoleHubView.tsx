@@ -19,8 +19,8 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
       <div className="p-6 pt-4 relative z-10 pb-32">
         <header className="mb-8 shrink-0">
           <h1 className="text-3xl font-bold leading-tight mb-2">
-            Great! What role <br/>
-            are you <span className="text-primary text-neon">targeting?</span>
+            Great! What work <br/>
+            do you want to <span className="text-primary text-neon">do?</span>
           </h1>
           <div className="relative mt-8 group">
             <span className="material-symbols-outlined absolute left-0 top-2 text-primary/70">search</span>
@@ -28,7 +28,7 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-transparent border-b border-primary/30 focus:border-primary text-white placeholder-slate-500 py-2 pl-8 outline-none transition-all duration-300" 
-              placeholder="Search for roles (e.g., Python Developer)..." 
+              placeholder="Search for jobs (e.g. Developer)..." 
             />
             <div className="absolute bottom-0 right-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(37,209,244,1)]"></div>
           </div>

@@ -13,24 +13,24 @@ interface Props {
 const NavHeader: React.FC<Props> = ({ level, role, company, view, onBack }) => {
   const getTitle = () => {
     switch (view) {
-      case AppView.ROLE_HUB: return "Career Lattice";
-      case AppView.COMPANY_DISCOVERY: return "Market Intel";
-      case AppView.COMPANY_PROFILE: return "Company Hub";
-      case AppView.GUIDE: return "Application Protocol";
-      case AppView.INTERVIEW_PREP: return "Combat Training";
-      case AppView.SUCCESS_STORIES: return "Archive Logs";
-      case AppView.JOB_LIST: return "Live Pipelines";
-      case AppView.AI_CHAT: return "Neural Consultant";
-      case AppView.PROFILE_HUB: return "Command Center";
+      case AppView.ROLE_HUB: return "Job Guides";
+      case AppView.COMPANY_DISCOVERY: return "Companies";
+      case AppView.COMPANY_PROFILE: return "Company Profile";
+      case AppView.GUIDE: return "How to Apply";
+      case AppView.INTERVIEW_PREP: return "Interview Prep";
+      case AppView.SUCCESS_STORIES: return "Success Stories";
+      case AppView.JOB_LIST: return "Available Jobs";
+      case AppView.AI_CHAT: return "Easy Assistant";
+      case AppView.PROFILE_HUB: return "My Profile";
       default: return "";
     }
   };
 
   const getPath = () => {
-    let path = "SYS";
+    let path = "HOME";
     if (level) path += ` > ${level}`;
-    if (role) path += ` > ${role.split(' ')[0].toUpperCase()}`;
-    if (company) path += ` > ${company.toUpperCase()}`;
+    if (role) path += ` > ${role}`;
+    if (company) path += ` > ${company}`;
     return path;
   };
 

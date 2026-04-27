@@ -12,6 +12,7 @@ import SuccessStoriesView from './components/SuccessStoriesView';
 import ChatView from './components/ChatView';
 import JobListView from './components/JobListView';
 import ProfileHubView from './components/ProfileHubView';
+import AuthView from './components/AuthView';
 import BottomNav from './components/BottomNav';
 import NavHeader from './components/NavHeader';
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 
   const handleBack = () => {
     switch (currentView) {
+      case AppView.AUTH: setCurrentView(AppView.HOME); break;
       case AppView.LEVEL_SELECT: setCurrentView(AppView.HOME); break;
       case AppView.ROLE_HUB: setCurrentView(AppView.LEVEL_SELECT); break;
       case AppView.COMPANY_DISCOVERY: setCurrentView(AppView.ROLE_HUB); break;
@@ -47,7 +49,9 @@ const App: React.FC = () => {
   const renderView = () => {
     switch (currentView) {
       case AppView.HOME:
-        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} />;
+        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} onLogin={() => setCurrentView(AppView.AUTH)} />;
+      case AppView.AUTH:
+        return <AuthView onSuccess={() => setCurrentView(AppView.LEVEL_SELECT)} onBack={handleBack} />;
       case AppView.LEVEL_SELECT:
         return <LevelSelectView onSelect={(l) => { setUserLevel(l); setCurrentView(AppView.ROLE_HUB); }} onBack={handleBack} />;
       case AppView.ROLE_HUB:
@@ -69,12 +73,12 @@ const App: React.FC = () => {
       case AppView.PROFILE_HUB:
         return <ProfileHubView onSelectModule={(m) => { console.log('Module selected:', m); setCurrentView(AppView.INTERVIEW_PREP); }} onBack={handleBack} />;
       default:
-        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} />;
+        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} onLogin={() => setCurrentView(AppView.AUTH)} />;
     }
   };
 
-  const showNav = ![AppView.HOME, AppView.LEVEL_SELECT].includes(currentView);
-  const showTopHeader = ![AppView.HOME, AppView.LEVEL_SELECT].includes(currentView);
+  const showNav = ![AppView.HOME, AppView.LEVEL_SELECT, AppView.AUTH].includes(currentView);
+  const showTopHeader = ![AppView.HOME, AppView.LEVEL_SELECT, AppView.AUTH].includes(currentView);
 
   return (
     <div className="relative w-full h-screen overflow-hidden flex flex-col items-center font-display">

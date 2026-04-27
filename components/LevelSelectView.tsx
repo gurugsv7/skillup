@@ -12,7 +12,7 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
     { 
       id: UserLevel.STUDENT, 
       label: 'STUDENT', 
-      desc: 'Beginner_Mode', 
+      desc: 'Just starting', 
       icon: 'school', 
       color: 'text-neon-cyan', 
       glow: 'bg-neon-cyan/40',
@@ -21,7 +21,7 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
     { 
       id: UserLevel.GRADUATE, 
       label: 'GRADUATE', 
-      desc: 'Level_1_Unlock', 
+      desc: 'Looking for jobs', 
       icon: 'workspace_premium', 
       color: 'text-neon-violet', 
       glow: 'bg-neon-violet/40',
@@ -30,7 +30,7 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
     { 
       id: UserLevel.PRO, 
       label: 'PRO', 
-      desc: 'Expert_Access', 
+      desc: 'Already working', 
       icon: 'business_center', 
       color: 'text-blue-400', 
       glow: 'bg-blue-400/40',
@@ -50,7 +50,7 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
 
         <header className="mb-12 relative">
           <div className="text-[10px] font-mono text-neon-cyan mb-2 tracking-[0.2em] uppercase opacity-70 animate-pulse">
-            &gt; System_Initialization...
+            &gt; Welcome!
           </div>
           <h1 className="text-4xl font-bold leading-tight text-white">
             Tell us about <br/>
@@ -93,7 +93,7 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
         <div className="mt-12 w-full text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-black/20 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Awaiting Input</span>
+            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Waiting for you</span>
           </div>
         </div>
       </div>

@@ -15,12 +15,12 @@ const JobListView: React.FC<Props> = ({ role, onSelectJob, onBack }) => {
         <div className="flex justify-between items-end mb-6">
           <div>
             <h1 className="text-2xl font-bold text-white leading-tight">
-              {role} <br/><span className="font-light text-gray-400">Opportunities</span>
+              {role} <br/><span className="font-light text-gray-400">Jobs</span>
             </h1>
           </div>
           <div className="glass-panel px-3 py-1.5 rounded-lg border-l-2 border-neon-cyan flex flex-col items-end">
             <span className="text-2xl font-mono font-bold text-neon-cyan text-neon leading-none">124</span>
-            <span className="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Found</span>
+            <span className="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Openings</span>
           </div>
         </div>
         
@@ -40,8 +40,8 @@ const JobListView: React.FC<Props> = ({ role, onSelectJob, onBack }) => {
             <h3 className="text-xl font-bold text-white mb-1">{job.company}</h3>
             <p className="text-xs text-gray-400 font-mono mb-4">{job.location}</p>
             <div className="flex gap-2">
-              <button className="flex-1 py-2 rounded-lg border border-white/20 text-xs font-medium">View Jobs</button>
-              <button onClick={onSelectJob} className="flex-1 py-2 rounded-lg bg-neon-cyan/10 border border-neon-cyan/50 text-neon-cyan text-xs font-medium">Prep</button>
+              <button className="flex-1 py-2 rounded-lg border border-white/20 text-xs font-medium">Show Details</button>
+              <button onClick={onSelectJob} className="flex-1 py-2 rounded-lg bg-neon-cyan/10 border border-neon-cyan/50 text-neon-cyan text-xs font-medium">Get Ready</button>
             </div>
           </article>
         ))}

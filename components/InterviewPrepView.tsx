@@ -8,22 +8,22 @@ interface Props {
 }
 
 const InterviewPrepView: React.FC<Props> = ({ company, onBack }) => {
-  const [activeTab, setActiveTab] = useState<'QUESTIONS' | 'MOCK' | 'RESOURCES' | 'TIPS'>('QUESTIONS');
+  const [activeTab, setActiveTab] = useState<'QUESTIONS' | 'PRACTICE' | 'RESOURCES' | 'TIPS'>('QUESTIONS');
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
       <header className="px-6 shrink-0 pt-4">
-        <h1 className="text-3xl font-bold mb-1 text-white">Prep Hub</h1>
-        <p className="text-xs text-gray-500 font-mono">Level up for {company.name}</p>
+        <h1 className="text-3xl font-bold mb-1 text-white">Interview Prep</h1>
+        <p className="text-xs text-gray-500 font-mono">Get ready for {company.name}</p>
         
         <div className="flex border-b border-white/5 mt-6">
-          {['QUESTIONS', 'MOCK', 'RESOURCES', 'TIPS'].map(t => (
+          {['QUESTIONS', 'PRACTICE', 'RESOURCES', 'TIPS'].map(t => (
             <button 
               key={t}
               onClick={() => setActiveTab(t as any)}
               className={`flex-1 py-3 text-[10px] font-mono tracking-widest transition-all ${activeTab === t ? 'text-neon-violet border-b-2 border-neon-violet bg-neon-violet/5' : 'text-gray-500'}`}
             >
-              {t}
+              {t === 'PRACTICE' ? 'PRACTICE' : t}
             </button>
           ))}
         </div>
@@ -59,16 +59,16 @@ const InterviewPrepView: React.FC<Props> = ({ company, onBack }) => {
           </div>
         )}
 
-        {activeTab === 'MOCK' && (
+        {activeTab === 'PRACTICE' && (
           <div className="space-y-6">
             <div className="glass-panel overflow-hidden rounded-2xl group">
               <div className="aspect-video bg-black/60 flex items-center justify-center relative">
                 <span className="material-symbols-outlined text-6xl text-white/20 group-hover:text-neon-cyan group-hover:scale-110 transition-all cursor-pointer">play_circle</span>
-                <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 rounded text-[10px] font-mono text-white uppercase tracking-widest">Phone Screen Simulation</div>
+                <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 rounded text-[10px] font-mono text-white uppercase tracking-widest">Mock Interview Video</div>
               </div>
               <div className="p-4">
-                <h4 className="font-bold text-white mb-1">Watch complete walkthrough</h4>
-                <p className="text-xs text-gray-500">15 minutes • Warm-up & Logic</p>
+                <h4 className="font-bold text-white mb-1">Watch how to answer</h4>
+                <p className="text-xs text-gray-500">15 minutes • Helpful tips</p>
               </div>
             </div>
           </div>

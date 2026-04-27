@@ -21,10 +21,10 @@ export const COMPANIES: Company[] = [
       cloud: ['GCP', 'Kubernetes']
     },
     timeline: [
-      { step: 'Phone Screen', duration: '30m' },
-      { step: 'Technical 1', duration: '1h' },
-      { step: 'Technical 2', duration: '1h' },
-      { step: 'Googlyness', duration: '45m' }
+      { step: 'Initial Call', duration: '30m' },
+      { step: 'Tech Interview 1', duration: '1h' },
+      { step: 'Tech Interview 2', duration: '1h' },
+      { step: 'Company Fit', duration: '45m' }
     ]
   },
   {
@@ -46,9 +46,9 @@ export const COMPANIES: Company[] = [
       cloud: ['AWS', 'Docker']
     },
     timeline: [
-      { step: 'Intro Call', duration: '20m' },
-      { step: 'Take-home Task', duration: '48h' },
-      { step: 'Deep Dive', duration: '1.5h' }
+      { step: 'First Call', duration: '20m' },
+      { step: 'Project Task', duration: '48h' },
+      { step: 'Final Interview', duration: '1.5h' }
     ]
   },
   {
@@ -70,10 +70,10 @@ export const COMPANIES: Company[] = [
       cloud: ['Azure']
     },
     timeline: [
-      { step: 'Online Assessment', duration: '1.5h' },
-      { step: 'Tech Round 1', duration: '45m' },
-      { step: 'Tech Round 2', duration: '45m' },
-      { step: 'Managerial', duration: '1h' }
+      { step: 'Quick Online Test', duration: '1.5h' },
+      { step: 'Tech Interview 1', duration: '45m' },
+      { step: 'Tech Interview 2', duration: '45m' },
+      { step: 'Meeting Manager', duration: '1h' }
     ]
   }
 ];
@@ -106,25 +106,25 @@ export const SUCCESS_STORIES: SuccessStory[] = [
 export const ROLE_CATEGORIES: RoleCategory[] = [
   {
     id: '01',
-    title: 'Data & AI',
+    title: 'Data and AI',
     icon: 'psychology',
-    trending: 'Trending in Finance',
+    trending: 'Trending now',
     roles: ['Data Scientist', 'ML Engineer', 'Data Analyst', 'AI Researcher'],
     color: 'from-primary to-purple-500'
   },
   {
     id: '02',
-    title: 'Cloud & DevOps',
+    title: 'Cloud and Systems',
     icon: 'cloud_queue',
-    trending: 'High Demand',
+    trending: 'Many jobs',
     roles: ['DevOps Engineer', 'Cloud Architect', 'SRE'],
     color: 'from-cyan-400 to-primary'
   },
   {
     id: '03',
-    title: 'Core Dev',
+    title: 'Software Development',
     icon: 'code',
-    trending: 'Core Industry',
+    trending: 'Always popular',
     roles: ['Frontend Developer', 'Backend Developer', 'Full Stack Developer'],
     color: 'from-purple-500 to-pink-500'
   }
