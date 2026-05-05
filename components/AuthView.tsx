@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
+import { useAppContext } from '../context/AppContext';
 
 interface Props {
   onSuccess: () => void;
@@ -12,20 +13,43 @@ const AuthView: React.FC<Props> = ({ onSuccess, onBack }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isScanning, setIsScanning] = useState(false);
+  const [error, setError] = useState('');
+  const { login } = useAppContext();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    
+    if (!email || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
+
+    if (email.length < 3 || !email.includes('@')) {
+      setError('Please enter a valid email');
+      return;
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
     setIsScanning(true);
-    // Simulate a "digital authentication" process
-    setTimeout(() => {
+    try {
+      await login(email, password);
+      setTimeout(() => {
+        setIsScanning(false);
+        onSuccess();
+      }, 1500);
+    } catch (err) {
       setIsScanning(false);
-      onSuccess();
-    }, 2000);
+      setError('Authentication failed. Please try again.');
+    }
   };
 
   return (
     <div className="flex-1 h-full flex flex-col items-center justify-center p-6 relative overflow-hidden bg-background-dark">
-      {/* Background Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
       
       <motion.div 
@@ -39,7 +63,7 @@ const AuthView: React.FC<Props> = ({ onSuccess, onBack }) => {
             <span className="material-symbols-outlined text-3xl text-neon-cyan drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]">
               {isLogin ? 'fingerprint' : 'person_add'}
             </span>
-            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-neon-cyan shadow-[0_0_10px_rgba(0,240,255,1)] animate-scan"></div>
+            {isScanning && <div className="absolute bottom-0 left-0 w-full h-[2px] bg-neon-cyan shadow-[0_0_10px_rgba(0,240,255,1)] animate-scan"></div>}
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">
             {isLogin ? 'Welcome Back' : 'Create Account'}
@@ -49,100 +73,92 @@ const AuthView: React.FC<Props> = ({ onSuccess, onBack }) => {
           </p>
         </header>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-4">
-            <div className="group relative">
-              <label className="text-[10px] font-mono text-gray-400 uppercase tracking-widest ml-1 mb-1 block group-focus-within:text-neon-cyan transition-colors">
-                Digital Address
-              </label>
-              <div className="relative">
-                <input 
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-neon-cyan/50 focus:bg-white/[0.07] transition-all"
-                />
-                <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 text-sm">alternate_email</span>
-              </div>
-            </div>
-
-            <div className="group relative">
-              <label className="text-[10px] font-mono text-gray-400 uppercase tracking-widest ml-1 mb-1 block group-focus-within:text-neon-cyan transition-colors">
-                Access Code
-              </label>
-              <div className="relative">
-                <input 
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 outline-none focus:border-neon-cyan/50 focus:bg-white/[0.07] transition-all"
-                />
-                <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 text-sm">lock</span>
-              </div>
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="relative group">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Address"
+              className="w-full bg-transparent border-b-2 border-white/20 focus:border-neon-cyan text-white placeholder-gray-600 py-3 outline-none transition-colors duration-300"
+              disabled={isScanning}
+            />
+            <span className="material-symbols-outlined absolute right-0 bottom-3 text-white/30 text-xl">mail</span>
           </div>
 
-          <div className="flex items-center justify-between px-1">
-            <label className="flex items-center gap-2 cursor-pointer group">
-              <input type="checkbox" className="hidden" />
-              <div className="w-4 h-4 border border-white/20 rounded bg-white/5 flex items-center justify-center group-focus-within:border-neon-cyan">
-                <div className="w-2 h-2 bg-neon-cyan rounded-sm opacity-0 group-active:opacity-100 transition-opacity"></div>
-              </div>
-              <span className="text-[10px] text-gray-500 font-mono uppercase tracking-widest">Remember</span>
-            </label>
-            <button type="button" className="text-[10px] text-primary font-mono uppercase tracking-widest hover:text-neon-cyan transition-colors">
-              Lost Code?
-            </button>
+          <div className="relative group">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="w-full bg-transparent border-b-2 border-white/20 focus:border-neon-cyan text-white placeholder-gray-600 py-3 outline-none transition-colors duration-300"
+              disabled={isScanning}
+            />
+            <span className="material-symbols-outlined absolute right-0 bottom-3 text-white/30 text-xl">lock</span>
           </div>
 
-          <button 
+          {error && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-red-400 text-sm text-center"
+            >
+              {error}
+            </motion.div>
+          )}
+
+          <motion.button
+            type="submit"
             disabled={isScanning}
-            className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest relative overflow-hidden group transition-all
-              ${isScanning ? 'bg-primary/20 text-primary cursor-wait' : 'bg-primary text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]'}
-            `}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full bg-gradient-to-r from-neon-cyan to-primary text-white font-bold py-3 rounded-lg mt-8 disabled:opacity-50 flex items-center justify-center gap-2 transition-all duration-300"
           >
-            <span className="relative z-10 flex items-center justify-center gap-2">
-              {isScanning ? (
-                <>
-                  <span className="w-2 h-2 rounded-full bg-neon-cyan animate-ping"></span>
-                  AUTHENTICATING...
-                </>
-              ) : (
-                <>
-                  {isLogin ? 'Enter Workspace' : 'Create Identity'}
-                  <span className="material-symbols-outlined text-sm">login</span>
-                </>
-              )}
-            </span>
-            {!isScanning && (
-              <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+            {isScanning ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <span>Authenticating...</span>
+              </>
+            ) : (
+              <>
+                <span>{isLogin ? 'Sign In' : 'Sign Up'}</span>
+                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              </>
             )}
-          </button>
+          </motion.button>
         </form>
 
-        <footer className="mt-12 text-center">
-          <p className="text-gray-500 text-[10px] font-mono mb-4 uppercase tracking-[0.2em]">
-            {isLogin ? "No identity recorded?" : "Already have an entry?"}
+        <div className="mt-8 text-center">
+          <p className="text-gray-500 text-sm mb-4">
+            {isLogin ? "Don't have an account?" : "Already have an account?"}
+            <button
+              type="button"
+              onClick={() => {
+                setIsLogin(!isLogin);
+                setEmail('');
+                setPassword('');
+                setError('');
+              }}
+              className="ml-2 text-neon-cyan hover:text-white transition-colors font-semibold"
+              disabled={isScanning}
+            >
+              {isLogin ? 'Sign Up' : 'Sign In'}
+            </button>
           </p>
-          <button 
-            onClick={() => setIsLogin(!isLogin)}
-            className="px-6 py-2 rounded-full border border-white/5 bg-white/[0.02] text-white text-[10px] font-mono uppercase tracking-widest hover:bg-white/[0.05] hover:border-white/10 transition-all"
-          >
-            {isLogin ? 'Register New Account' : 'Switch to Login'}
-          </button>
-        </footer>
+        </div>
 
-        <button 
-          onClick={onBack}
-          className="absolute -top-12 -left-4 p-2 text-gray-500 hover:text-white transition-colors flex items-center gap-1 group"
-        >
-          <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
-          <span className="text-[10px] font-mono uppercase tracking-widest">Return</span>
-        </button>
+        <div className="mt-8 text-center">
+          <button
+            type="button"
+            onClick={onBack}
+            className="text-gray-500 hover:text-white transition-colors text-sm flex items-center justify-center gap-2 w-full"
+            disabled={isScanning}
+          >
+            <span className="material-symbols-outlined text-lg">arrow_back</span>
+            <span>Back to Home</span>
+          </button>
+        </div>
       </motion.div>
     </div>
   );

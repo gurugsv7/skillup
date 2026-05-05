@@ -4,7 +4,7 @@ import { UserLevel } from '../types';
 
 interface Props {
   onSelect: (level: UserLevel) => void;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
@@ -41,13 +41,6 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
   return (
     <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative min-h-0">
       <div className="p-6 pt-24 pb-32">
-        <button 
-          onClick={onBack}
-          className="absolute top-6 left-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-neon-cyan hover:bg-white/10 transition-all backdrop-blur-md z-20"
-        >
-          <span className="material-symbols-outlined text-2xl">arrow_back</span>
-        </button>
-
         <header className="mb-12 relative">
           <div className="text-[10px] font-mono text-neon-cyan mb-2 tracking-[0.2em] uppercase opacity-70 animate-pulse">
             &gt; Welcome!

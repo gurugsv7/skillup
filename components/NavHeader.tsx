@@ -26,14 +26,6 @@ const NavHeader: React.FC<Props> = ({ level, role, company, view, onBack }) => {
     }
   };
 
-  const getPath = () => {
-    let path = "HOME";
-    if (level) path += ` > ${level}`;
-    if (role) path += ` > ${role}`;
-    if (company) path += ` > ${company}`;
-    return path;
-  };
-
   return (
     <div className="shrink-0 z-40 bg-background-dark/80 backdrop-blur-xl border-b border-white/5 pt-10 pb-4 px-6">
       <div className="flex items-center justify-between mb-2">
@@ -52,10 +44,6 @@ const NavHeader: React.FC<Props> = ({ level, role, company, view, onBack }) => {
            <div className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_5px_rgba(0,240,255,1)] animate-pulse"></div>
            <span className="text-[9px] font-mono text-neon-cyan/70 tracking-widest uppercase">Active_Link</span>
         </div>
-      </div>
-      <div className="text-[8px] font-mono text-gray-500 uppercase tracking-widest flex items-center gap-2">
-        <span className="text-gray-700">PATH:</span>
-        <span className="bg-black/40 px-2 py-0.5 rounded text-gray-400 border border-white/5">{getPath()}</span>
       </div>
     </div>
   );

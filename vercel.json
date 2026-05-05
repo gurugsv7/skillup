@@ -1,0 +1,21 @@
+{
+  "projectName": "s4skillup",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "env": {
+    "VITE_SUPABASE_URL": "@vite_supabase_url",
+    "VITE_SUPABASE_ANON_KEY": "@vite_supabase_anon_key",
+    "VITE_SUPABASE_SERVICE_ROLE_KEY": "@vite_supabase_service_role_key",
+    "VITE_POSTHOG_API_KEY": "@vite_posthog_api_key",
+    "VITE_POSTHOG_API_HOST": "@vite_posthog_api_host",
+    "VITE_SENTRY_DSN": "@vite_sentry_dsn",
+    "VITE_ENVIRONMENT": "production"
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

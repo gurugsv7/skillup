@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Company } from '../types';
+import { useAppContext } from '../context/AppContext';
 
 interface Props {
   company: Company;
@@ -8,27 +9,35 @@ interface Props {
 }
 
 const GuideView: React.FC<Props> = ({ company, onBack }) => {
+  const [resumeScore] = useState(87);
+  const [copied, setCopied] = useState(false);
+  const { selectedCompany } = useAppContext();
+  const displayCompany = selectedCompany || company;
   return (
     <div className="flex-1 flex flex-col h-full overflow-y-auto no-scrollbar">
       <header className="p-6 shrink-0 pt-4">
         <h1 className="text-3xl font-bold mb-1 text-white">How to Apply</h1>
-        <p className="text-xs text-gray-500 font-mono">Steps for {company.name}</p>
+        <p className="text-xs text-gray-500 font-mono">Steps for {displayCompany.name}</p>
       </header>
 
       <div className="px-6 space-y-10 pb-24">
         <section>
           <h3 className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">1. Where to apply</h3>
           <div className="grid grid-cols-2 gap-3">
-            <button className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors">
-              <span className="material-symbols-outlined text-neon-cyan mb-2">language</span>
-              <div className="text-[10px] font-bold text-white uppercase tracking-wider">Company Site</div>
-              <div className="text-[8px] text-gray-500 mt-1 font-mono">OFFICIAL</div>
-            </button>
-            <button className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors">
-              <span className="material-symbols-outlined text-neon-violet mb-2">link</span>
-              <div className="text-[10px] font-bold text-white uppercase tracking-wider">LinkedIn</div>
-              <div className="text-[8px] text-gray-500 mt-1 font-mono">NETWORKING</div>
-            </button>
+            {displayCompany.careersPage && (
+              <a href={displayCompany.careersPage} target="_blank" rel="noopener noreferrer" className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors cursor-pointer">
+                <span className="material-symbols-outlined text-neon-cyan mb-2">language</span>
+                <div className="text-[10px] font-bold text-white uppercase tracking-wider">Careers Page</div>
+                <div className="text-[8px] text-gray-500 mt-1 font-mono">OFFICIAL</div>
+              </a>
+            )}
+            {displayCompany.linkedInUrl && (
+              <a href={displayCompany.linkedInUrl} target="_blank" rel="noopener noreferrer" className="glass-panel p-4 rounded-xl text-left hover:bg-white/5 transition-colors cursor-pointer">
+                <span className="material-symbols-outlined text-neon-violet mb-2">link</span>
+                <div className="text-[10px] font-bold text-white uppercase tracking-wider">LinkedIn</div>
+                <div className="text-[8px] text-gray-500 mt-1 font-mono">NETWORKING</div>
+              </a>
+            )}
           </div>
         </section>
 
@@ -40,7 +49,7 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
             
             <div className="flex justify-between items-end mb-6">
               <div>
-                <div className="text-2xl font-mono font-bold text-neon-cyan">87%</div>
+                <div className="text-2xl font-mono font-bold text-neon-cyan">{resumeScore}%</div>
                 <div className="text-[8px] text-gray-500 uppercase font-mono tracking-widest">Resume Score</div>
               </div>
               <div className="w-12 h-12 bg-neon-cyan/10 rounded-lg flex items-center justify-center border border-neon-cyan/20">
@@ -49,10 +58,10 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
             </div>
 
             <div className="space-y-4">
-              <p className="text-xs text-gray-400 font-mono leading-relaxed">Include keywords: {company.stack.frontend.slice(0, 3).join(', ')}, Scalable Architecture.</p>
+              <p className="text-xs text-gray-400 font-mono leading-relaxed">Include keywords from {displayCompany.name}'s tech stack and job requirements.</p>
               <div className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-red-400"></span>
-                <span className="text-[10px] text-red-400 font-mono">Achievement metrics missing</span>
+                <span className="w-1 h-1 rounded-full bg-amber-400"></span>
+                <span className="text-[10px] text-amber-400 font-mono">Add quantified achievements and metrics</span>
               </div>
             </div>
           </div>
@@ -64,8 +73,18 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
             <div className="glass-panel p-4 rounded-xl border-l-2 border-l-primary">
               <h4 className="text-xs font-bold text-white mb-2 uppercase tracking-wider">Message Template</h4>
               <p className="text-[10px] text-gray-500 font-mono leading-relaxed bg-black/40 p-3 rounded italic">
-                "Hi [Name], I'm a developer deeply interested in {company.name}'s mission. I see you're working on [Project]..."
+                "Hi [Name], I'm interested in {displayCompany.name} and saw you're working there. I'd love to discuss opportunities..."
               </p>
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText(`Hi [Name], I'm interested in ${displayCompany.name} and saw you're working there. I'd love to discuss opportunities...`);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className="text-[10px] font-mono text-primary font-bold mt-3 hover:text-neon-cyan transition"
+              >
+                {copied ? '✓ COPIED' : 'COPY'}
+              </button>
             </div>
             <div className="flex items-center gap-3 p-4 bg-primary/10 border border-primary/20 rounded-xl">
               <span className="material-symbols-outlined text-primary">group</span>
@@ -77,7 +96,7 @@ const GuideView: React.FC<Props> = ({ company, onBack }) => {
         <section className="bg-red-500/5 border border-red-500/20 p-5 rounded-2xl">
           <h3 className="text-[10px] font-mono text-red-400 uppercase tracking-widest mb-4">Mistakes to Avoid</h3>
           <ul className="space-y-2">
-            {['Generic Resumes', 'Missing Deadlines', 'Poor Email Etiquette'].map(m => (
+            {['Generic Resumes', 'Missing Deadlines', 'Poor Email Etiquette', 'Lack of Follow-up'].map(m => (
               <li key={m} className="text-xs text-red-400/80 font-mono flex items-center gap-2">
                 <span className="material-symbols-outlined text-sm">block</span> {m}
               </li>

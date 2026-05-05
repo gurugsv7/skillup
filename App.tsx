@@ -17,24 +17,30 @@ import BottomNav from './components/BottomNav';
 import NavHeader from './components/NavHeader';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<AppView>(AppView.HOME);
+  const [currentView, setCurrentView] = useState<AppView>(() => AppView.LEVEL_SELECT);
   const [userLevel, setUserLevel] = useState<UserLevel | null>(null);
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
 
   const handleBack = () => {
     switch (currentView) {
-      case AppView.AUTH: setCurrentView(AppView.HOME); break;
-      case AppView.LEVEL_SELECT: setCurrentView(AppView.HOME); break;
-      case AppView.ROLE_HUB: setCurrentView(AppView.LEVEL_SELECT); break;
-      case AppView.COMPANY_DISCOVERY: setCurrentView(AppView.ROLE_HUB); break;
-      case AppView.COMPANY_PROFILE: setCurrentView(AppView.COMPANY_DISCOVERY); break;
+      case AppView.AUTH: 
+        setCurrentView(userLevel ? AppView.ROLE_HUB : AppView.LEVEL_SELECT); 
+        break;
+      case AppView.LEVEL_SELECT: 
+        setCurrentView(AppView.LEVEL_SELECT); 
+        break;
+      case AppView.ROLE_HUB:
+      case AppView.COMPANY_DISCOVERY:
+      case AppView.COMPANY_PROFILE:
       case AppView.GUIDE:
       case AppView.INTERVIEW_PREP:
-      case AppView.SUCCESS_STORIES: setCurrentView(AppView.COMPANY_PROFILE); break;
-      case AppView.JOB_LIST: setCurrentView(AppView.ROLE_HUB); break;
+      case AppView.SUCCESS_STORIES:
+      case AppView.JOB_LIST:
       case AppView.AI_CHAT:
-      case AppView.PROFILE_HUB: setCurrentView(AppView.ROLE_HUB); break;
+      case AppView.PROFILE_HUB: 
+        setCurrentView(AppView.ROLE_HUB); 
+        break;
       default: break;
     }
   };
@@ -90,7 +96,7 @@ const App: React.FC = () => {
             role={selectedRole} 
             company={selectedCompany?.name} 
             view={currentView}
-            onBack={handleBack}
+            onBack={currentView !== AppView.ROLE_HUB ? handleBack : undefined}
           />
         )}
         <main className="flex-1 flex flex-col min-h-0 overflow-hidden relative">

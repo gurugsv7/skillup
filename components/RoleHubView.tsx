@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ROLE_CATEGORIES } from '../constants';
+import { useAppContext } from '../context/AppContext';
 
 interface Props {
   onSelectRole: (role: string) => void;
@@ -9,6 +10,28 @@ interface Props {
 
 const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
   const [search, setSearch] = useState('');
+  const { roles } = useAppContext();
+
+  // Filter roles based on search
+  const filteredRoles = useMemo(() => {
+    if (!search) return roles;
+    return roles.filter(role => 
+      role.name.toLowerCase().includes(search.toLowerCase()) ||
+      role.category.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [roles, search]);
+
+  // Group roles by category
+  const rolesByCategory = useMemo(() => {
+    const grouped: { [key: string]: typeof roles } = {};
+    filteredRoles.forEach(role => {
+      if (!grouped[role.category]) {
+        grouped[role.category] = [];
+      }
+      grouped[role.category].push(role);
+    });
+    return grouped;
+  }, [filteredRoles]);
 
   return (
     <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative min-h-0">
@@ -35,56 +58,74 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
         </header>
 
         <div className="mb-8 shrink-0">
-          <h3 className="text-xs uppercase tracking-widest text-slate-500 mb-4 font-semibold">Most Searched</h3>
+          <h3 className="text-xs uppercase tracking-widest text-slate-500 mb-4 font-semibold">{search ? 'Search Results' : 'Popular Roles'}</h3>
           <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2">
-            {['Full Stack', 'Data Scientist', 'Cyber Security', 'DevOps'].map(tag => (
+            {(search ? filteredRoles : roles.slice(0, 4)).map(role => (
               <button 
-                key={tag}
-                onClick={() => onSelectRole(tag)}
+                key={role.id}
+                onClick={() => onSelectRole(role.name)}
                 className="flex-shrink-0 px-4 py-2 rounded-full border border-slate-700 bg-background-dark/50 text-slate-400 text-sm font-medium whitespace-nowrap hover:border-primary/30 hover:text-primary transition-colors"
               >
-                {tag}
+                {role.name}
               </button>
             ))}
           </div>
         </div>
 
         <div className="flex flex-col relative shrink-0">
-          <div className="flex gap-6 overflow-x-auto no-scrollbar py-4 -mx-6 px-6">
-            {ROLE_CATEGORIES.map((cat) => (
-              <div 
-                key={cat.id} 
-                className="shrink-0 w-[280px] h-[380px] glass-panel rounded-xl relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02]"
-              >
-                <div className="absolute top-0 right-0 p-4 opacity-50">
-                  <span className="text-[80px] font-bold text-slate-800 leading-none select-none">{cat.id}</span>
-                </div>
-                <div className="p-6 h-full flex flex-col relative z-10">
-                  <div className="h-24 w-24 mb-6 relative">
-                    <div className={`absolute inset-0 bg-gradient-to-tr ${cat.color} rounded-lg transform rotate-45 opacity-20 blur-sm`}></div>
-                    <div className={`absolute inset-2 bg-gradient-to-bl ${cat.color} rounded-lg transform rotate-12 flex items-center justify-center border border-white/10 shadow-lg`}>
-                      <span className="material-symbols-outlined text-white text-4xl">{cat.icon}</span>
+          {filteredRoles.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-slate-400 text-sm">No roles found matching "{search}"</p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {ROLE_CATEGORIES.map((cat) => {
+                const categoryRoles = filteredRoles.filter(r => 
+                  r.category.toLowerCase().includes(cat.title.toLowerCase().split(' ')[0])
+                );
+                if (categoryRoles.length === 0) return null;
+                
+                return (
+                  <div key={cat.id} className="shrink-0">
+                    <div className="flex gap-6 overflow-x-auto no-scrollbar py-4 -mx-6 px-6">
+                      {categoryRoles.map((role) => (
+                        <div 
+                          key={role.id}
+                          onClick={() => onSelectRole(role.name)}
+                          className="shrink-0 w-[280px] h-[320px] glass-panel rounded-xl relative overflow-hidden group transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
+                        >
+                          <div className="absolute top-0 right-0 p-4 opacity-50">
+                            <span className="text-[60px] font-bold text-slate-800 leading-none select-none">{role.difficulty[0].toUpperCase()}</span>
+                          </div>
+                          <div className="p-6 h-full flex flex-col relative z-10">
+                            <div className="mb-6">
+                              <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${cat.color} rounded-lg border border-white/10 shadow-lg`}>
+                                <span className="material-symbols-outlined text-white text-2xl">{cat.icon}</span>
+                              </div>
+                            </div>
+                            <h2 className="text-xl font-bold text-white mb-1 line-clamp-2">{role.name}</h2>
+                            <p className="text-xs text-primary mb-2">{role.difficulty}</p>
+                            <p className="text-xs text-slate-400 mb-4 line-clamp-2">{role.description}</p>
+                            <div className="mt-auto">
+                              <p className="text-xs text-slate-500 mb-2">Timeline: {role.timeToMastery}</p>
+                              <div className="flex gap-1 flex-wrap">
+                                {role.learningPath.beginner.tools.slice(0, 3).map((tool, i) => (
+                                  <span key={i} className="text-[9px] bg-primary/10 text-primary px-2 py-1 rounded border border-primary/20">
+                                    {tool}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <h2 className="text-2xl font-bold text-white mb-1">{cat.title}</h2>
-                  <p className="text-xs text-primary mb-6">{cat.trending}</p>
-                  <ul className="space-y-3 mt-auto">
-                    {cat.roles.map(role => (
-                      <li 
-                        key={role}
-                        onClick={() => onSelectRole(role)}
-                        className="flex items-center text-slate-300 text-sm border-l-2 border-primary/30 pl-3 hover:text-white hover:border-primary transition-colors cursor-pointer group/item"
-                      >
-                        <span>{role}</span>
-                        <span className="material-symbols-outlined text-[10px] ml-auto opacity-0 group-hover/item:opacity-100 text-primary">arrow_forward_ios</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
-              </div>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>

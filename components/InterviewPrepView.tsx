@@ -1,6 +1,16 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Company } from '../types';
+import { useAppContext } from '../context/AppContext';
+import { getInterviewQuestions } from '../src/services/supabase';
+
+interface InterviewQuestion {
+  id: string;
+  title: string;
+  question_text: string;
+  difficulty: string;
+  category: string;
+}
 
 interface Props {
   company: Company;
@@ -9,12 +19,41 @@ interface Props {
 
 const InterviewPrepView: React.FC<Props> = ({ company, onBack }) => {
   const [activeTab, setActiveTab] = useState<'QUESTIONS' | 'PRACTICE' | 'RESOURCES' | 'TIPS'>('QUESTIONS');
+  const [questions, setQuestions] = useState<InterviewQuestion[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { selectedCompany } = useAppContext();
+  const displayCompany = selectedCompany || company;
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        setLoading(true);
+        const { data, error } = await getInterviewQuestions(
+          undefined,
+          undefined,
+          displayCompany.id
+        );
+        
+        if (error) throw error;
+        setQuestions(data || []);
+      } catch (error) {
+        console.error('Error fetching interview questions:', error);
+        setQuestions([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (displayCompany.id) {
+      fetchQuestions();
+    }
+  }, [displayCompany.id]);
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
       <header className="px-6 shrink-0 pt-4">
         <h1 className="text-3xl font-bold mb-1 text-white">Interview Prep</h1>
-        <p className="text-xs text-gray-500 font-mono">Get ready for {company.name}</p>
+        <p className="text-xs text-gray-500 font-mono">Get ready for {displayCompany.name}</p>
         
         <div className="flex border-b border-white/5 mt-6">
           {['QUESTIONS', 'PRACTICE', 'RESOURCES', 'TIPS'].map(t => (
@@ -33,29 +72,34 @@ const InterviewPrepView: React.FC<Props> = ({ company, onBack }) => {
         {activeTab === 'QUESTIONS' && (
           <div className="space-y-4">
             <div className="flex justify-between items-center mb-6 px-1">
-              <span className="text-[10px] font-mono text-gray-500">Showing 327 questions</span>
+              <span className="text-[10px] font-mono text-gray-500">Showing {questions.length} questions from {displayCompany.name}</span>
               <div className="flex gap-2">
                 <span className="w-4 h-1 bg-neon-cyan rounded-full"></span>
                 <span className="w-4 h-1 bg-gray-700 rounded-full"></span>
               </div>
             </div>
             
-            {[
-              { q: 'Explain Event Loop in depth', d: 'Hard', t: 'Frontend' },
-              { q: 'Design a scalable Chat App', d: 'Medium', t: 'System Design' },
-              { q: 'Reverse Linked List', d: 'Easy', t: 'DSA' }
-            ].map((item, i) => (
-              <div key={i} className="glass-panel p-4 rounded-xl border-l-2 border-l-neon-violet">
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-[9px] font-mono text-neon-violet bg-neon-violet/10 px-2 py-0.5 rounded">{item.t}</span>
-                  <span className="text-[9px] font-mono text-gray-500">{item.d}</span>
+            {loading ? (
+              <div className="text-center py-8 text-gray-500 text-sm">Loading interview questions...</div>
+            ) : questions.length > 0 ? (
+              questions.map((q, i) => (
+                <div key={q.id} className="glass-panel p-4 rounded-xl border-l-2 border-l-neon-violet">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-[9px] font-mono text-neon-violet bg-neon-violet/10 px-2 py-0.5 rounded">{q.category}</span>
+                    <span className="text-[9px] font-mono text-gray-500 uppercase">{q.difficulty}</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white">{q.title}</h4>
+                  <p className="text-xs text-gray-400 mt-2">{q.question_text}</p>
+                  <div className="flex justify-end mt-4">
+                    <button className="text-[10px] font-mono text-primary font-bold hover:text-neon-cyan transition">SOLVE &gt;</button>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-white">{item.q}</h4>
-                <div className="flex justify-end mt-4">
-                  <button className="text-[10px] font-mono text-primary font-bold">SOLVE &gt;</button>
-                </div>
+              ))
+            ) : (
+              <div className="text-center py-8 text-gray-500 text-sm">
+                No interview questions available yet. Check back soon!
               </div>
-            ))}
+            )}
           </div>
         )}
 

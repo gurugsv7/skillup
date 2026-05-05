@@ -10,9 +10,9 @@ interface Props {
 const BottomNav: React.FC<Props> = ({ currentView, onViewChange }) => {
   const items = [
     { view: AppView.ROLE_HUB, icon: 'explore', label: 'GUIDES' },
-    { view: AppView.PROFILE_HUB, icon: 'hub', label: 'MY INFO' },
     { view: AppView.AI_CHAT, icon: 'forum', label: 'ASSISTANT' },
     { view: AppView.JOB_LIST, icon: 'search', label: 'JOBS' },
+    { view: AppView.PROFILE_HUB, icon: 'hub', label: 'MY INFO' },
   ];
 
   return (
