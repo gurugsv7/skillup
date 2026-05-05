@@ -51,17 +51,10 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
       });
     }
     
-    // Filter by role if hiring for that role
-    if (role) {
-      result = result.filter(c => 
-        contextCompanies.find(cc => cc.id === c.id)?.rolesHiring?.some((r: string) => 
-          r.toLowerCase().includes(role.toLowerCase()) || role.toLowerCase().includes(r.toLowerCase())
-        )
-      );
-    }
-    
-    return result.filter(c => c.isHiring);
-  }, [mappedCompanies, activeTab, role, contextCompanies]);
+    // Show all companies in the filtered category (regardless of hiring status)
+    // This allows users to prepare for any company they want
+    return result;
+  }, [mappedCompanies, activeTab]);
 
   return (
     <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
@@ -87,7 +80,7 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
       <div className="flex-1 overflow-y-auto no-scrollbar px-6 space-y-4 pb-32 pt-4">
         {filtered.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-slate-400 text-sm">No companies hiring for this role</p>
+            <p className="text-slate-400 text-sm">No companies found in this category</p>
           </div>
         ) : (
           filtered.map(c => (
@@ -101,7 +94,9 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
                   {typeof c.logo === 'string' && c.logo.length === 1 ? c.logo : '🏢'}
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="text-[10px] font-mono text-neon-green bg-neon-green/10 px-2 py-0.5 rounded uppercase tracking-wider mb-2">Hiring</span>
+                  <span className={`text-[10px] font-mono ${c.isHiring ? 'text-neon-green bg-neon-green/10' : 'text-gray-400 bg-gray-400/10'} px-2 py-0.5 rounded uppercase tracking-wider mb-2`}>
+                    {c.isHiring ? 'Hiring' : 'Explore'}
+                  </span>
                   <div className="flex text-neon-amber">
                     {[...Array(5)].map((_, i) => (
                       <span key={i} className="material-symbols-outlined text-xs leading-none">star</span>
@@ -125,7 +120,9 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
               </div>
 
               <div className="flex gap-2">
-                <button className="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest hover:bg-white/10">Show Jobs</button>
+                <button className="flex-1 py-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono uppercase tracking-widest hover:bg-white/10">
+                  {c.isHiring ? 'Show Jobs' : 'Explore'}
+                </button>
                 <button className="flex-1 py-2 rounded-lg bg-primary/20 border border-primary/40 text-primary text-[10px] font-mono uppercase tracking-widest hover:bg-primary/30">Get Ready</button>
               </div>
             </div>
