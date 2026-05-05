@@ -1,33 +1,23 @@
 
 import React, { useState, useRef, useEffect } from 'react';
+import { getChatResponse } from '../src/services/azureOpenAI';
 
 interface Props {
   onBack: () => void;
 }
 
-const mockResponses: { [key: string]: string } = {
-  resume: "A strong resume should have: 1) Clear formatting, 2) Quantified achievements, 3) Relevant keywords, 4) Action verbs. Try to keep it to 1 page if you have less than 5 years of experience.",
-  interview: "For interviews: 1) Practice STAR method, 2) Research the company, 3) Prepare 3-5 project stories, 4) Mock with friends. Most interviews are 30-40% technical, 70% communication.",
-  salary: "Salary negotiation tips: 1) Research market rates, 2) Get offer first, 3) Don't anchor too low, 4) Consider total package (bonus, stock, benefits), 5) Be professional.",
-  role: "Choose a role based on: 1) Your interests, 2) Market demand, 3) Learning curve, 4) Salary expectations. Frontend/Backend are in high demand. DataScience requires strong math.",
-  company: "Top companies to target: 1) TCS, 2) Infosys, 3) Microsoft, 4) Amazon, 5) Google. Each has different hiring processes. Research before applying.",
-  default: "Great question! I'm here to help. Feel free to ask about resume tips, interview prep, salary negotiation, or career paths. How can I help?"
-};
-
-const getAIResponse = (query: string): string => {
-  const lower = query.toLowerCase();
-  for (const [key, response] of Object.entries(mockResponses)) {
-    if (lower.includes(key)) return response;
-  }
-  return mockResponses.default;
-};
+interface Message {
+  role: 'user' | 'model';
+  text: string;
+}
 
 const ChatView: React.FC<Props> = ({ onBack }) => {
-  const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([
+  const [messages, setMessages] = useState<Message[]>([
     { role: 'model', text: 'Hi! I\'m s4skillup Assistant. I can help you with resume tips, interview prep, salary negotiation, and career guidance. What can I help with?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,18 +31,40 @@ const ChatView: React.FC<Props> = ({ onBack }) => {
     
     const userMsg = input;
     setInput('');
+    setError(null);
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     setLoading(true);
 
-    setTimeout(() => {
-      const aiText = getAIResponse(userMsg);
-      setMessages(prev => [...prev, { role: 'model', text: aiText }]);
+    try {
+      // Build conversation history for context
+      const conversationHistory = messages.map(m => ({
+        role: m.role === 'user' ? 'user' : 'assistant',
+        content: m.text
+      } as const));
+
+      const aiResponse = await getChatResponse(userMsg, conversationHistory);
+      setMessages(prev => [...prev, { role: 'model', text: aiResponse }]);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to get response from AI. Please try again.';
+      setError(errorMessage);
+      console.error('Chat error:', err);
+      // Show error message to user in chat
+      setMessages(prev => [...prev, { 
+        role: 'model', 
+        text: `I apologize, but I encountered an issue: ${errorMessage}. Please try again or contact support.` 
+      }]);
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   return (
     <div className="flex-1 flex flex-col h-full relative overflow-hidden">
+      {error && (
+        <div className="bg-red-500/20 border border-red-500/50 text-red-300 px-4 py-2 rounded text-sm">
+          {error}
+        </div>
+      )}
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar pb-32 pt-6">
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -81,12 +93,13 @@ const ChatView: React.FC<Props> = ({ onBack }) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Input query to AI..."
-            className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-4 pr-16 outline-none focus:border-neon-cyan/50 backdrop-blur-xl text-white font-mono text-sm"
+            disabled={loading}
+            className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-4 pr-16 outline-none focus:border-neon-cyan/50 backdrop-blur-xl text-white font-mono text-sm disabled:opacity-50"
           />
           <button 
             onClick={handleSend}
             disabled={loading}
-            className="absolute right-2 top-2 bottom-2 aspect-square rounded-lg bg-neon-cyan flex items-center justify-center text-black hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.4)]"
+            className="absolute right-2 top-2 bottom-2 aspect-square rounded-lg bg-neon-cyan flex items-center justify-center text-black hover:bg-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="material-symbols-outlined">send</span>
           </button>

@@ -18,20 +18,28 @@ import NavHeader from './components/NavHeader';
 import DesktopNotification from './components/DesktopNotification';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<AppView>(() => AppView.LEVEL_SELECT);
+  const [currentView, setCurrentView] = useState<AppView>(() => AppView.HOME);
   const [userLevel, setUserLevel] = useState<UserLevel | null>(null);
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
 
+  const goToLevelSelect = () => {
+    setSelectedRole(null);
+    setSelectedCompany(null);
+    setCurrentView(AppView.LEVEL_SELECT);
+  };
+
   const handleBack = () => {
     switch (currentView) {
-      case AppView.AUTH: 
-        setCurrentView(userLevel ? AppView.ROLE_HUB : AppView.LEVEL_SELECT); 
+      case AppView.AUTH:
+        setCurrentView(AppView.HOME);
         break;
-      case AppView.LEVEL_SELECT: 
-        setCurrentView(AppView.LEVEL_SELECT); 
+      case AppView.LEVEL_SELECT:
+        setCurrentView(AppView.HOME);
         break;
       case AppView.ROLE_HUB:
+        goToLevelSelect();
+        break;
       case AppView.COMPANY_DISCOVERY:
       case AppView.COMPANY_PROFILE:
       case AppView.GUIDE:
@@ -56,11 +64,24 @@ const App: React.FC = () => {
   const renderView = () => {
     switch (currentView) {
       case AppView.HOME:
-        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} onLogin={() => setCurrentView(AppView.AUTH)} />;
+        return (
+          <LandingView
+            onStart={goToLevelSelect}
+            onLogin={() => setCurrentView(AppView.AUTH)}
+          />
+        );
       case AppView.AUTH:
         return <AuthView onSuccess={() => setCurrentView(AppView.LEVEL_SELECT)} onBack={handleBack} />;
       case AppView.LEVEL_SELECT:
-        return <LevelSelectView onSelect={(l) => { setUserLevel(l); setCurrentView(AppView.ROLE_HUB); }} onBack={handleBack} />;
+        return (
+          <LevelSelectView
+            onSelect={(l) => {
+              setUserLevel(l);
+              setCurrentView(AppView.ROLE_HUB);
+            }}
+            onBack={handleBack}
+          />
+        );
       case AppView.ROLE_HUB:
         return <RoleHubView onSelectRole={(r) => { setSelectedRole(r); setCurrentView(AppView.COMPANY_DISCOVERY); }} onBack={handleBack} />;
       case AppView.COMPANY_DISCOVERY:
@@ -80,7 +101,12 @@ const App: React.FC = () => {
       case AppView.PROFILE_HUB:
         return <ProfileHubView onSelectModule={(m) => { console.log('Module selected:', m); setCurrentView(AppView.INTERVIEW_PREP); }} onBack={handleBack} />;
       default:
-        return <LandingView onStart={() => setCurrentView(AppView.LEVEL_SELECT)} onLogin={() => setCurrentView(AppView.AUTH)} />;
+        return (
+          <LandingView
+            onStart={goToLevelSelect}
+            onLogin={() => setCurrentView(AppView.AUTH)}
+          />
+        );
     }
   };
 
@@ -98,7 +124,7 @@ const App: React.FC = () => {
             role={selectedRole} 
             company={selectedCompany?.name} 
             view={currentView}
-            onBack={currentView !== AppView.ROLE_HUB ? handleBack : undefined}
+            onBack={handleBack}
           />
         )}
         <main className="flex-1 flex flex-col min-h-0 overflow-hidden relative">

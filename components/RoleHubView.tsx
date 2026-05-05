@@ -12,6 +12,32 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
   const [search, setSearch] = useState('');
   const { roles } = useAppContext();
 
+  const getCategoryMeta = (category: string) => {
+    const normalized = category.toLowerCase();
+
+    if (normalized.includes('data') || normalized.includes('ai') || normalized.includes('ml')) {
+      return { icon: 'psychology', color: 'from-primary to-purple-500' };
+    }
+
+    if (normalized.includes('cloud') || normalized.includes('devops') || normalized.includes('system')) {
+      return { icon: 'cloud_queue', color: 'from-cyan-400 to-primary' };
+    }
+
+    if (
+      normalized.includes('qa') ||
+      normalized.includes('test') ||
+      normalized.includes('software') ||
+      normalized.includes('frontend') ||
+      normalized.includes('backend') ||
+      normalized.includes('full stack') ||
+      normalized.includes('development')
+    ) {
+      return { icon: 'code', color: 'from-purple-500 to-pink-500' };
+    }
+
+    return { icon: 'work', color: 'from-slate-500 to-slate-700' };
+  };
+
   // Filter roles based on search
   const filteredRoles = useMemo(() => {
     if (!search) return roles;
@@ -21,18 +47,6 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
     );
   }, [roles, search]);
 
-  // Group roles by category
-  const rolesByCategory = useMemo(() => {
-    const grouped: { [key: string]: typeof roles } = {};
-    filteredRoles.forEach(role => {
-      if (!grouped[role.category]) {
-        grouped[role.category] = [];
-      }
-      grouped[role.category].push(role);
-    });
-    return grouped;
-  }, [filteredRoles]);
-
   return (
     <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative min-h-0">
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -41,10 +55,20 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
 
       <div className="p-6 pt-4 relative z-10 pb-32">
         <header className="mb-8 shrink-0">
+          <button
+            onClick={onBack}
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-mono tracking-[0.22em] uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <span className="material-symbols-outlined text-base">arrow_back</span>
+            Change level
+          </button>
           <h1 className="text-3xl font-bold leading-tight mb-2">
             Great! What work <br/>
             do you want to <span className="text-primary text-neon">do?</span>
           </h1>
+          <p className="max-w-sm text-sm text-slate-400 leading-relaxed">
+            If you picked the wrong path, jump back to student, graduate, or pro and start the selector again.
+          </p>
           <div className="relative mt-8 group">
             <span className="material-symbols-outlined absolute left-0 top-2 text-primary/70">search</span>
             <input 
@@ -77,12 +101,63 @@ const RoleHubView: React.FC<Props> = ({ onSelectRole, onBack }) => {
             <div className="text-center py-12">
               <p className="text-slate-400 text-sm">No roles found matching "{search}"</p>
             </div>
+          ) : search ? (
+            <div className="grid grid-cols-1 gap-4">
+              {filteredRoles.map((role) => {
+                const meta = getCategoryMeta(role.category);
+
+                return (
+                  <div
+                    key={role.id}
+                    onClick={() => onSelectRole(role.name)}
+                    className="glass-panel rounded-xl relative overflow-hidden group transition-transform duration-300 hover:scale-[1.01] cursor-pointer border border-white/10"
+                  >
+                    <div className="absolute top-0 right-0 p-4 opacity-50">
+                      <span className="text-[60px] font-bold text-slate-800 leading-none select-none">{role.difficulty[0].toUpperCase()}</span>
+                    </div>
+                    <div className="p-6 flex flex-col gap-4 relative z-10">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${meta.color} rounded-lg border border-white/10 shadow-lg shrink-0`}>
+                          <span className="material-symbols-outlined text-white text-2xl">{meta.icon}</span>
+                        </div>
+                        <span className="text-[9px] font-mono uppercase tracking-widest text-slate-300 bg-white/5 border border-white/10 rounded-full px-3 py-1">
+                          {role.category}
+                        </span>
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-bold text-white mb-1 line-clamp-2">{role.name}</h2>
+                        <p className="text-xs text-primary mb-2">{role.difficulty}</p>
+                        <p className="text-xs text-slate-400 line-clamp-2">{role.description}</p>
+                      </div>
+                      <div className="mt-auto">
+                        <p className="text-xs text-slate-500 mb-2">Timeline: {role.timeToMastery}</p>
+                        <div className="flex gap-1 flex-wrap">
+                          {role.learningPath.beginner.tools.slice(0, 3).map((tool, i) => (
+                            <span key={i} className="text-[9px] bg-primary/10 text-primary px-2 py-1 rounded border border-primary/20">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+                  </div>
+                );
+              })}
+            </div>
           ) : (
             <div className="space-y-6">
               {ROLE_CATEGORIES.map((cat) => {
-                const categoryRoles = filteredRoles.filter(r => 
-                  r.category.toLowerCase().includes(cat.title.toLowerCase().split(' ')[0])
-                );
+                const categoryKey = cat.title.toLowerCase();
+                const categoryRoles = filteredRoles.filter(r => {
+                  const normalizedCategory = r.category.toLowerCase();
+                  const normalizedName = r.name.toLowerCase();
+                  return (
+                    normalizedCategory.includes(categoryKey) ||
+                    categoryKey.includes(normalizedCategory) ||
+                    cat.roles.some(roleName => normalizedName.includes(roleName.toLowerCase()))
+                  );
+                });
                 if (categoryRoles.length === 0) return null;
                 
                 return (

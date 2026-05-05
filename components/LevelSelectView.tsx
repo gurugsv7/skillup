@@ -42,6 +42,15 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
     <div className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative min-h-0">
       <div className="p-6 pt-24 pb-32">
         <header className="mb-12 relative">
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] font-mono tracking-[0.22em] uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <span className="material-symbols-outlined text-base">arrow_back</span>
+              Home
+            </button>
+          )}
           <div className="text-[10px] font-mono text-neon-cyan mb-2 tracking-[0.2em] uppercase opacity-70 animate-pulse">
             &gt; Welcome!
           </div>
@@ -49,6 +58,9 @@ const LevelSelectView: React.FC<Props> = ({ onSelect, onBack }) => {
             Tell us about <br/>
             <span className="text-neon-cyan text-neon">yourself</span>
           </h1>
+          <p className="mt-4 max-w-sm text-sm text-gray-400 leading-relaxed">
+            Choose the path that matches where you are right now. You can come back here from home anytime.
+          </p>
           <div className="w-16 h-1 bg-gradient-to-r from-neon-cyan to-transparent mt-4"></div>
         </header>
 
