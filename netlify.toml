@@ -5,7 +5,7 @@ publish = "dist"
 
 [build.environment]
 NODE_VERSION = "22"
-NODE_ENV = "production"
+NPM_CONFIG_PRODUCTION = "false"
 CI = "true"
 
 [[redirects]]
