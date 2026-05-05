@@ -11,55 +11,56 @@ const LandingView: React.FC<Props> = ({ onStart, onLogin }) => {
     <div className="flex-1 h-full flex flex-col p-6 overflow-y-auto no-scrollbar pb-32">
       <header className="flex justify-between items-center mb-12 mt-6 shrink-0">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">Q</div>
-          <span className="font-mono text-sm tracking-widest font-bold">QUICKJOB</span>
+          <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-cyan-500/50">S4</div>
+          <span className="font-mono text-sm tracking-widest font-bold">S4SKILLUP</span>
         </div>
         <div className="flex gap-4">
           <button onClick={onLogin} className="text-xs font-mono text-gray-400 hover:text-white transition-colors">LOGIN</button>
-          <button onClick={onLogin} className="text-xs font-mono text-primary font-bold hover:text-neon-cyan transition-colors">SIGN UP</button>
+          <button onClick={onLogin} className="text-xs font-mono text-cyan-400 font-bold hover:text-cyan-300 transition-colors">SIGN UP</button>
         </div>
       </header>
 
       <section className="mb-12 shrink-0">
         <h1 className="text-5xl font-bold leading-[1.1] mb-6 tracking-tight">
-          Find Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-primary text-neon">Great Job</span> Easily
+          Your Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Starts Here</span>
         </h1>
         <p className="text-gray-400 mb-8 text-lg leading-relaxed">
-          Simple job listings and easy tips to help you get hired at top tech companies.
+          Navigate the Indian tech job market with confidence. Get real interview questions, salary insights, and proven strategies from 72+ companies.
         </p>
         <button 
           onClick={onStart}
-          className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 group transition-all"
+          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2 group transition-all"
         >
-          START NOW
+          START MY JOURNEY
           <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </button>
       </section>
 
       <section className="grid grid-cols-3 gap-4 mb-12 shrink-0">
         {[
-          { v: '500+', l: 'Companies' },
-          { v: '50+', l: 'Roles' },
-          { v: '10k+', l: 'Questions' }
+          { v: '72+', l: 'Companies' },
+          { v: '37+', l: 'Roles' },
+          { v: '96+', l: 'Questions' }
         ].map(s => (
-          <div key={s.l} className="text-center p-3 glass-panel rounded-xl">
-            <div className="text-xl font-bold text-white">{s.v}</div>
+          <div key={s.l} className="text-center p-3 glass-panel rounded-xl hover:border-cyan-500/50 transition-colors">
+            <div className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">{s.v}</div>
             <div className="text-[10px] text-gray-500 uppercase tracking-widest">{s.l}</div>
           </div>
         ))}
       </section>
 
       <section className="mb-12 shrink-0">
-        <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">How It Works</h3>
+        <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">Why s4skillup</h3>
         <div className="space-y-6">
           {[
-            { n: '01', t: 'Tell us your level', d: 'Student, New Grad, or Pro' },
-            { n: '02', t: 'Pick a job type', d: 'Choose what you want to do' },
-            { n: '03', t: 'Get ready', d: 'Easy tips specifically for you' }
+            { n: '01', t: 'Real Interview Questions', d: 'Questions from actual interviews at top companies like TCS, Infosys, Google, Amazon, and more' },
+            { n: '02', t: 'Salary Intelligence', d: 'Know what you should earn with percentile-based salary data by role and company' },
+            { n: '03', t: 'Success Stories', d: 'Learn from real hiring journeys and career transitions of professionals like you' },
+            { n: '04', t: 'Personalized Guidance', d: 'Get matched with roles based on your skills, experience, and career aspirations' }
           ].map(step => (
-            <div key={step.n} className="flex gap-4 items-start">
-              <span className="text-primary font-mono font-bold">{step.n}</span>
-              <div>
+            <div key={step.n} className="flex gap-4 items-start p-3 rounded-lg hover:bg-white/5 transition-colors">
+              <span className="text-cyan-400 font-mono font-bold text-lg">{step.n}</span>
+              <div className="flex-1">
                 <h4 className="font-bold text-white">{step.t}</h4>
                 <p className="text-sm text-gray-500">{step.d}</p>
               </div>
@@ -69,21 +70,78 @@ const LandingView: React.FC<Props> = ({ onStart, onLogin }) => {
       </section>
 
       <section className="mb-12 shrink-0">
-        <h3 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">Featured Companies</h3>
-        <div className="grid grid-cols-4 gap-4 opacity-40">
-          {[1,2,3,4,5,6,7,8].map(i => (
-            <div key={i} className="aspect-square bg-white/5 rounded-lg border border-white/10 flex items-center justify-center grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-              <span className="material-symbols-outlined text-xl">corporate_fare</span>
+        <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">Trusted by Companies</h3>
+        <div className="grid grid-cols-4 gap-3 mb-6">
+          {['TCS', 'Infosys', 'Wipro', 'Amazon', 'Google', 'Zoho', 'Microsoft', 'Freshworks'].map(company => (
+            <div key={company} className="aspect-square bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20 flex items-center justify-center text-xs font-mono font-bold text-gray-300 hover:border-cyan-500/50 transition-colors">
+              {company}
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-gray-500 font-mono">... and 64+ more companies with real hiring data</p>
+      </section>
+
+      <section className="mb-12 shrink-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-6">
+        <h3 className="text-sm font-mono text-cyan-400 uppercase tracking-widest mb-4">What's Included</h3>
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            '✓ Interview Prep',
+            '✓ Salary Benchmarks',
+            '✓ Company Insights',
+            '✓ Role Guidance',
+            '✓ Success Stories',
+            '✓ Learning Paths',
+            '✓ Career Chat AI',
+            '✓ Progress Tracking'
+          ].map((item, i) => (
+            <div key={i} className="text-sm text-gray-300 flex items-center gap-2">
+              <span className="text-cyan-400">{item.split(' ')[0]}</span>
+              <span>{item.split(' ').slice(1).join(' ')}</span>
             </div>
           ))}
         </div>
       </section>
 
+      <section className="mb-12 shrink-0">
+        <h3 className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6">Your Success Journey</h3>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">📊</div>
+            <div>
+              <div className="font-semibold text-white text-sm">Assess</div>
+              <div className="text-xs text-gray-500">Know your level & target role</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">🎯</div>
+            <div>
+              <div className="font-semibold text-white text-sm">Target</div>
+              <div className="text-xs text-gray-500">Choose companies & roles</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-sm">🚀</div>
+            <div>
+              <div className="font-semibold text-white text-sm">Prepare</div>
+              <div className="text-xs text-gray-500">Real questions, tips, and strategies</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-cyan-600 flex items-center justify-center text-white font-bold text-sm">🏆</div>
+            <div>
+              <div className="font-semibold text-white text-sm">Succeed</div>
+              <div className="text-xs text-gray-500">Land your dream role</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="mt-auto pt-8 border-t border-white/5 text-[10px] text-gray-600 font-mono flex justify-between uppercase shrink-0">
-        <span>© 2024 QuickJob</span>
+        <span>© 2026 s4skillup</span>
         <div className="flex gap-4">
-          <span>About</span>
-          <span>Privacy</span>
+          <span className="hover:text-gray-400 cursor-pointer transition-colors">About</span>
+          <span className="hover:text-gray-400 cursor-pointer transition-colors">Privacy</span>
+          <span className="hover:text-gray-400 cursor-pointer transition-colors">Contact</span>
         </div>
       </footer>
     </div>

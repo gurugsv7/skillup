@@ -15,6 +15,7 @@ import ProfileHubView from './components/ProfileHubView';
 import AuthView from './components/AuthView';
 import BottomNav from './components/BottomNav';
 import NavHeader from './components/NavHeader';
+import DesktopNotification from './components/DesktopNotification';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>(() => AppView.LEVEL_SELECT);
@@ -89,6 +90,7 @@ const App: React.FC = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden flex flex-col items-center font-display">
       <Background />
+      <DesktopNotification />
       <div className="relative z-10 w-full h-full max-w-md bg-background-dark/90 backdrop-blur-md overflow-hidden flex flex-col border-x border-white/5">
         {showTopHeader && (
           <NavHeader 
