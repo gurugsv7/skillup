@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "role_fullstack_dev",
+    "name": "Full Stack Developer",
+    "category": "Software Development",
+    "difficulty": "intermediate",
+    "timeToMastery": "9-12 months",
+    "description": "Build complete web applications from front-end to back-end",
+    "overview": "You'll work on both user-facing interfaces and server-side logic",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "zoho",
+      "freshworks",
+      "chargebee",
+      "amazon",
+      "microsoft",
+      "google"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 300,
+        "topics": [
+          "HTML/CSS/JavaScript fundamentals",
+          "React basics (JSX, Components, State)",
+          "Node.js basics (Express, routing)",
+          "Version control (Git/GitHub)",
+          "Basic SQL"
+        ],
+        "tools": [
+          "VS Code",
+          "Git",
+          "Chrome DevTools",
+          "Postman",
+          "MongoDB Atlas"
+        ],
+        "projectIdeas": [
+          "Todo App with React",
+          "Weather App",
+          "Personal Portfolio Website"
+        ]
+      },
+      "intermediate": {
+        "duration": "3-4 months",
+        "estimatedHours": 350,
+        "topics": [
+          "Advanced React (Hooks, Context, Redux)",
+          "REST APIs & GraphQL",
+          "Database design (MySQL/PostgreSQL)",
+          "Authentication & Authorization",
+          "API testing with Postman"
+        ],
+        "tools": [
+          "Redux",
+          "Postman",
+          "Docker",
+          "PostgreSQL",
+          "Webpack"
+        ],
+        "projectIdeas": [
+          "E-commerce Website",
+          "Blog Platform with CMS",
+          "Social Media Clone"
+        ]
+      },
+      "advanced": {
+        "duration": "3-6 months",
+        "estimatedHours": 400,
+        "topics": [
+          "System design for scalability",
+          "Microservices architecture",
+          "Cloud deployment (AWS/Azure)",
+          "Performance optimization",
+          "Security best practices"
+        ],
+        "tools": [
+          "Kubernetes",
+          "Docker",
+          "AWS/Azure",
+          "Redis",
+          "Jenkins"
+        ],
+        "projectIdeas": [
+          "Production-grade SaaS application",
+          "Microservices-based platform",
+          "Real-time collaborative tool"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Node.js",
+        "React",
+        "Express",
+        "MySQL/PostgreSQL",
+        "Git"
+      ],
+      "nice": [
+        "Docker",
+        "AWS",
+        "Redux",
+        "TypeScript"
+      ],
+      "optional": [
+        "Redis",
+        "GraphQL",
+        "Kubernetes",
+        "Elasticsearch"
+      ]
+    }
+  },
+  {
+    "id": "role_frontend_dev",
+    "name": "Frontend Developer",
+    "category": "Software Development",
+    "difficulty": "beginner",
+    "timeToMastery": "6-8 months",
+    "description": "Create beautiful, responsive user interfaces",
+    "overview": "Build the visual part of web applications that users interact with",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "zoho",
+      "freshworks",
+      "chargebee",
+      "amazon",
+      "microsoft",
+      "google",
+      "ideas2it"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "2-3 months",
+        "estimatedHours": 250,
+        "topics": [
+          "HTML5 & CSS3",
+          "JavaScript fundamentals",
+          "Responsive design",
+          "CSS Flexbox & Grid"
+        ],
+        "tools": [
+          "VS Code",
+          "Chrome DevTools",
+          "Figma",
+          "Git"
+        ],
+        "projectIdeas": [
+          "Landing page",
+          "Personal portfolio",
+          "Restaurant website"
+        ]
+      },
+      "intermediate": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "React/Vue/Angular fundamentals",
+          "Component-based architecture",
+          "State management basics",
+          "API integration"
+        ],
+        "tools": [
+          "React",
+          "Tailwind CSS",
+          "Figma",
+          "Postman"
+        ],
+        "projectIdeas": [
+          "E-commerce UI",
+          "Dashboard application",
+          "Photo gallery app"
+        ]
+      },
+      "advanced": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Advanced state management",
+          "Performance optimization",
+          "Accessibility (A11y)",
+          "Testing (Jest, React Testing Library)"
+        ],
+        "tools": [
+          "Redux",
+          "Jest",
+          "Lighthouse",
+          "WebRTC"
+        ],
+        "projectIdeas": [
+          "Real-time collaboration tool",
+          "Advanced dashboard",
+          "Video streaming platform UI"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "HTML/CSS",
+        "JavaScript",
+        "React/Vue/Angular",
+        "Git"
+      ],
+      "nice": [
+        "Tailwind CSS",
+        "TypeScript",
+        "Figma",
+        "Redux"
+      ],
+      "optional": [
+        "WebGL",
+        "Three.js",
+        "D3.js"
+      ]
+    }
+  },
+  {
+    "id": "role_backend_dev",
+    "name": "Backend Developer",
+    "category": "Software Development",
+    "difficulty": "intermediate",
+    "timeToMastery": "8-10 months",
+    "description": "Build server-side logic and APIs that power applications",
+    "overview": "Design robust, scalable systems that handle business logic and data",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "zoho",
+      "freshworks",
+      "chargebee",
+      "amazon",
+      "microsoft",
+      "google"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 350,
+        "topics": [
+          "Server fundamentals",
+          "Node.js/Python/Java basics",
+          "Express/Flask/Spring Boot",
+          "Database basics (SQL)",
+          "HTTP & REST concepts"
+        ],
+        "tools": [
+          "Node.js",
+          "PostgreSQL",
+          "Postman",
+          "Git"
+        ],
+        "projectIdeas": [
+          "Simple REST API",
+          "Todo backend",
+          "Blog API"
+        ]
+      },
+      "intermediate": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Advanced REST APIs",
+          "Database design & optimization",
+          "Authentication & JWT",
+          "Error handling & logging",
+          "Middleware & routing"
+        ],
+        "tools": [
+          "Express",
+          "MongoDB/PostgreSQL",
+          "Redis",
+          "Docker"
+        ],
+        "projectIdeas": [
+          "E-commerce backend",
+          "Social media API",
+          "SaaS backend"
+        ]
+      },
+      "advanced": {
+        "duration": "3-6 months",
+        "estimatedHours": 450,
+        "topics": [
+          "Microservices architecture",
+          "Scaling databases",
+          "Message queues (RabbitMQ, Kafka)",
+          "Caching strategies",
+          "Cloud deployment"
+        ],
+        "tools": [
+          "Kubernetes",
+          "Docker",
+          "AWS",
+          "Kafka",
+          "Redis"
+        ],
+        "projectIdeas": [
+          "Microservices platform",
+          "High-traffic API",
+          "Real-time messaging system"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Node.js/Python/Java",
+        "Express/Django/Spring",
+        "SQL",
+        "Git",
+        "Postman"
+      ],
+      "nice": [
+        "Docker",
+        "Redis",
+        "MongoDB",
+        "AWS"
+      ],
+      "optional": [
+        "Kubernetes",
+        "GraphQL",
+        "Kafka",
+        "gRPC"
+      ]
+    }
+  },
+  {
+    "id": "role_data_analyst",
+    "name": "Data Analyst",
+    "category": "Data & AI",
+    "difficulty": "beginner",
+    "timeToMastery": "6-8 months",
+    "description": "Turn raw data into actionable insights",
+    "overview": "Analyze data to help businesses make better decisions",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "amazon",
+      "microsoft",
+      "google",
+      "hcl"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "2-3 months",
+        "estimatedHours": 250,
+        "topics": [
+          "Excel fundamentals & pivot tables",
+          "SQL basics (SELECT, WHERE, JOIN)",
+          "Data visualization basics",
+          "Statistics fundamentals"
+        ],
+        "tools": [
+          "Microsoft Excel",
+          "SQL",
+          "Power BI",
+          "Google Sheets"
+        ],
+        "projectIdeas": [
+          "Sales analysis dashboard",
+          "Customer behavior analysis",
+          "Market trend report"
+        ]
+      },
+      "intermediate": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Advanced SQL (CTEs, window functions)",
+          "Power BI/Tableau dashboards",
+          "Python basics for data (Pandas)",
+          "Data cleaning & preprocessing"
+        ],
+        "tools": [
+          "Power BI",
+          "Tableau",
+          "Python",
+          "SQL"
+        ],
+        "projectIdeas": [
+          "Interactive business dashboard",
+          "Customer segmentation analysis",
+          "Financial forecasting"
+        ]
+      },
+      "advanced": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Advanced Python (NumPy, Pandas)",
+          "Statistical modeling",
+          "Machine learning basics",
+          "A/B testing"
+        ],
+        "tools": [
+          "Python",
+          "Jupyter Notebook",
+          "Scikit-learn",
+          "Advanced SQL"
+        ],
+        "projectIdeas": [
+          "Predictive analytics model",
+          "Advanced time series analysis",
+          "ML-based insights platform"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Excel",
+        "SQL",
+        "Power BI/Tableau",
+        "Python"
+      ],
+      "nice": [
+        "Jupyter Notebook",
+        "Pandas",
+        "NumPy",
+        "Git"
+      ],
+      "optional": [
+        "R",
+        "Apache Spark",
+        "Scikit-learn"
+      ]
+    }
+  },
+  {
+    "id": "role_data_scientist",
+    "name": "Data Scientist",
+    "category": "Data & AI",
+    "difficulty": "advanced",
+    "timeToMastery": "12-18 months",
+    "description": "Build machine learning models and AI solutions",
+    "overview": "Apply advanced statistics and ML to solve complex business problems",
+    "companiesHiring": [
+      "amazon",
+      "microsoft",
+      "google",
+      "ibm",
+      "adobe"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Python fundamentals",
+          "Data structures & algorithms",
+          "Statistics & probability",
+          "Linear algebra basics"
+        ],
+        "tools": [
+          "Python",
+          "Jupyter Notebook",
+          "NumPy",
+          "Pandas"
+        ],
+        "projectIdeas": [
+          "Data exploration projects",
+          "Statistical analysis",
+          "Basic data cleaning"
+        ]
+      },
+      "intermediate": {
+        "duration": "4-5 months",
+        "estimatedHours": 450,
+        "topics": [
+          "Machine learning algorithms",
+          "Feature engineering",
+          "Model evaluation",
+          "Scikit-learn & TensorFlow basics"
+        ],
+        "tools": [
+          "Scikit-learn",
+          "TensorFlow",
+          "Matplotlib",
+          "SQL"
+        ],
+        "projectIdeas": [
+          "Supervised learning models",
+          "Unsupervised learning projects",
+          "Prediction models"
+        ]
+      },
+      "advanced": {
+        "duration": "4-6 months",
+        "estimatedHours": 500,
+        "topics": [
+          "Deep learning (Neural networks)",
+          "NLP & Computer Vision",
+          "Model deployment",
+          "Production ML systems"
+        ],
+        "tools": [
+          "TensorFlow/PyTorch",
+          "Keras",
+          "OpenCV",
+          "AWS/GCP"
+        ],
+        "projectIdeas": [
+          "Deep learning application",
+          "NLP project (chatbot, sentiment analysis)",
+          "Computer vision application"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Python",
+        "TensorFlow/PyTorch",
+        "Scikit-learn",
+        "SQL",
+        "Jupyter Notebook"
+      ],
+      "nice": [
+        "AWS",
+        "Docker",
+        "Git",
+        "Matplotlib/Seaborn"
+      ],
+      "optional": [
+        "Spark",
+        "Kubernetes",
+        "Apache Airflow"
+      ]
+    }
+  },
+  {
+    "id": "role_devops_engineer",
+    "name": "DevOps Engineer",
+    "category": "Cloud & DevOps",
+    "difficulty": "intermediate",
+    "timeToMastery": "10-12 months",
+    "description": "Automate deployment and infrastructure management",
+    "overview": "Bridge development and operations using automation and cloud tools",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "amazon",
+      "microsoft",
+      "google",
+      "paypal"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 350,
+        "topics": [
+          "Linux fundamentals",
+          "Networking basics",
+          "Shell scripting",
+          "Git & version control"
+        ],
+        "tools": [
+          "Linux",
+          "Bash",
+          "Git",
+          "SSH"
+        ],
+        "projectIdeas": [
+          "Linux server setup",
+          "Bash automation scripts",
+          "Basic networking setup"
+        ]
+      },
+      "intermediate": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Docker containerization",
+          "Kubernetes basics",
+          "CI/CD pipelines",
+          "AWS fundamentals"
+        ],
+        "tools": [
+          "Docker",
+          "Kubernetes",
+          "Jenkins",
+          "AWS"
+        ],
+        "projectIdeas": [
+          "Docker containerized application",
+          "CI/CD pipeline setup",
+          "Kubernetes deployment"
+        ]
+      },
+      "advanced": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Infrastructure as Code (Terraform)",
+          "Advanced Kubernetes",
+          "Monitoring & logging",
+          "Security in DevOps"
+        ],
+        "tools": [
+          "Terraform",
+          "Prometheus",
+          "ELK Stack",
+          "AWS/GCP"
+        ],
+        "projectIdeas": [
+          "IaC production setup",
+          "Monitoring system",
+          "Disaster recovery solution"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "AWS/Azure",
+        "Git"
+      ],
+      "nice": [
+        "Terraform",
+        "Jenkins",
+        "Prometheus",
+        "Bash/Python"
+      ],
+      "optional": [
+        "Ansible",
+        "Helm",
+        "ArgoCD",
+        "Vault"
+      ]
+    }
+  },
+  {
+    "id": "role_cloud_engineer",
+    "name": "Cloud Engineer",
+    "category": "Cloud & DevOps",
+    "difficulty": "intermediate",
+    "timeToMastery": "9-12 months",
+    "description": "Design and manage cloud infrastructure",
+    "overview": "Build scalable, reliable systems using cloud platforms",
+    "companiesHiring": [
+      "amazon",
+      "microsoft",
+      "google",
+      "oracle",
+      "ibm"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 350,
+        "topics": [
+          "Cloud fundamentals (IaaS, PaaS, SaaS)",
+          "AWS/Azure basics",
+          "Networking in cloud",
+          "Storage solutions"
+        ],
+        "tools": [
+          "AWS Console",
+          "Azure Portal",
+          "CloudFormation",
+          "IAM"
+        ],
+        "projectIdeas": [
+          "Simple EC2 deployment",
+          "S3 bucket setup",
+          "VPC configuration"
+        ]
+      },
+      "intermediate": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Advanced AWS services",
+          "Database management (RDS, DynamoDB)",
+          "Serverless architecture",
+          "Security & compliance"
+        ],
+        "tools": [
+          "Lambda",
+          "RDS",
+          "S3",
+          "CloudWatch"
+        ],
+        "projectIdeas": [
+          "Serverless application",
+          "Auto-scaling infrastructure",
+          "Multi-region deployment"
+        ]
+      },
+      "advanced": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Infrastructure as Code",
+          "Advanced security",
+          "Cost optimization",
+          "Disaster recovery"
+        ],
+        "tools": [
+          "Terraform",
+          "AWS Organizations",
+          "CloudTrail",
+          "GuardDuty"
+        ],
+        "projectIdeas": [
+          "Enterprise cloud architecture",
+          "HA/DR solution",
+          "Cost optimization audit"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "AWS/Azure/GCP",
+        "Networking",
+        "Databases",
+        "Linux",
+        "Git"
+      ],
+      "nice": [
+        "Terraform",
+        "Docker",
+        "Python",
+        "IAM"
+      ],
+      "optional": [
+        "Kubernetes",
+        "Service Mesh",
+        "API Gateway",
+        "CDN"
+      ]
+    }
+  },
+  {
+    "id": "role_security_analyst",
+    "name": "Cybersecurity Analyst",
+    "category": "Cybersecurity",
+    "difficulty": "intermediate",
+    "timeToMastery": "10-12 months",
+    "description": "Protect systems and data from cyber threats",
+    "overview": "Monitor and defend against security vulnerabilities and attacks",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "deloitte",
+      "pwc",
+      "microsoft",
+      "google"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "3-4 months",
+        "estimatedHours": 350,
+        "topics": [
+          "Networking fundamentals",
+          "Security basics",
+          "Cryptography introduction",
+          "Common vulnerabilities (OWASP)"
+        ],
+        "tools": [
+          "Wireshark",
+          "Nmap",
+          "Linux",
+          "SSH"
+        ],
+        "projectIdeas": [
+          "Network analysis",
+          "Vulnerability scanning",
+          "Security audit report"
+        ]
+      },
+      "intermediate": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "SIEM tools (Splunk, QRadar)",
+          "Intrusion detection",
+          "Incident response",
+          "Security compliance"
+        ],
+        "tools": [
+          "Splunk",
+          "Kali Linux",
+          "Burp Suite",
+          "Metasploit"
+        ],
+        "projectIdeas": [
+          "Security monitoring setup",
+          "Incident response plan",
+          "Penetration testing"
+        ]
+      },
+      "advanced": {
+        "duration": "3-4 months",
+        "estimatedHours": 400,
+        "topics": [
+          "Advanced threat detection",
+          "Forensics",
+          "Security architecture",
+          "Risk management"
+        ],
+        "tools": [
+          "Advanced SIEM",
+          "Forensics tools",
+          "Threat intelligence platforms",
+          "AWS Security"
+        ],
+        "projectIdeas": [
+          "Threat hunting",
+          "Digital forensics case",
+          "Security governance framework"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Linux",
+        "Networking",
+        "Wireshark",
+        "Splunk/QRadar"
+      ],
+      "nice": [
+        "Kali Linux",
+        "Burp Suite",
+        "Python",
+        "AWS Security"
+      ],
+      "optional": [
+        "Metasploit",
+        "Nessus",
+        "Hashicorp Vault",
+        "SIEM tools"
+      ]
+    }
+  },
+  {
+    "id": "role_qa_engineer",
+    "name": "QA Automation Engineer",
+    "category": "Testing",
+    "difficulty": "beginner",
+    "timeToMastery": "6-8 months",
+    "description": "Automate testing to ensure software quality",
+    "overview": "Write automated tests to catch bugs before they reach users",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "zoho",
+      "freshworks",
+      "amazon",
+      "microsoft",
+      "google"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "2-3 months",
+        "estimatedHours": 250,
+        "topics": [
+          "Software testing fundamentals",
+          "Test case design",
+          "Manual testing",
+          "Selenium basics"
+        ],
+        "tools": [
+          "Selenium",
+          "Java/Python",
+          "Git",
+          "Jira"
+        ],
+        "projectIdeas": [
+          "Manual test cases",
+          "Simple automation script",
+          "Test plan creation"
+        ]
+      },
+      "intermediate": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Advanced Selenium",
+          "Testing frameworks (TestNG, JUnit)",
+          "API testing with Postman",
+          "CI/CD integration"
+        ],
+        "tools": [
+          "Selenium",
+          "Postman",
+          "Jenkins",
+          "TestNG"
+        ],
+        "projectIdeas": [
+          "End-to-end test suite",
+          "API automation",
+          "Cross-browser testing"
+        ]
+      },
+      "advanced": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Performance testing (JMeter)",
+          "Mobile automation (Appium)",
+          "Continuous testing",
+          "Test data management"
+        ],
+        "tools": [
+          "JMeter",
+          "Appium",
+          "Cypress",
+          "LoadRunner"
+        ],
+        "projectIdeas": [
+          "Performance test suite",
+          "Mobile app automation",
+          "Load testing framework"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Selenium",
+        "Java/Python",
+        "Postman",
+        "Git"
+      ],
+      "nice": [
+        "Cypress",
+        "Jenkins",
+        "JMeter",
+        "Jira"
+      ],
+      "optional": [
+        "Appium",
+        "LoadRunner",
+        "Test Rail",
+        "Robot Framework"
+      ]
+    }
+  },
+  {
+    "id": "role_business_analyst",
+    "name": "Business Analyst",
+    "category": "Product & Management",
+    "difficulty": "beginner",
+    "timeToMastery": "6-8 months",
+    "description": "Bridge business needs and technical solutions",
+    "overview": "Analyze requirements and help teams deliver value",
+    "companiesHiring": [
+      "tcs",
+      "infosys",
+      "wipro",
+      "deloitte",
+      "amazon",
+      "microsoft"
+    ],
+    "learningPath": {
+      "beginner": {
+        "duration": "2-3 months",
+        "estimatedHours": 250,
+        "topics": [
+          "Requirements gathering",
+          "Process modeling",
+          "Documentation",
+          "Stakeholder communication"
+        ],
+        "tools": [
+          "Excel",
+          "Visio/Lucidchart",
+          "Jira",
+          "SQL basics"
+        ],
+        "projectIdeas": [
+          "Requirements document",
+          "Process flow diagrams",
+          "Use case specifications"
+        ]
+      },
+      "intermediate": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Data analysis",
+          "Agile methodology",
+          "User stories & acceptance criteria",
+          "Testing coordination"
+        ],
+        "tools": [
+          "Jira",
+          "Confluence",
+          "Power BI",
+          "SQL"
+        ],
+        "projectIdeas": [
+          "Agile project management",
+          "Data-driven recommendations",
+          "User research analysis"
+        ]
+      },
+      "advanced": {
+        "duration": "2-3 months",
+        "estimatedHours": 300,
+        "topics": [
+          "Strategic planning",
+          "Product roadmapping",
+          "Advanced analytics",
+          "Business case development"
+        ],
+        "tools": [
+          "Tableau/Power BI",
+          "Advanced SQL",
+          "Python",
+          "Strategic frameworks"
+        ],
+        "projectIdeas": [
+          "Product strategy document",
+          "Business case & ROI analysis",
+          "Market analysis report"
+        ]
+      }
+    },
+    "requiredTools": {
+      "core": [
+        "Excel",
+        "Jira",
+        "SQL",
+        "Confluence"
+      ],
+      "nice": [
+        "Power BI",
+        "Visio",
+        "Python",
+        "SQL"
+      ],
+      "optional": [
+        "Tableau",
+        "Looker",
+        "Advanced analytics",
+        "UX Research"
+      ]
+    }
+  }
+]

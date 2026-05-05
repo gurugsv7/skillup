@@ -1,0 +1,727 @@
+[
+  {
+    "id": "tcs",
+    "name": "Tata Consultancy Services",
+    "tier": "mnc",
+    "hiringStatus": "regular",
+    "logo": "🔵",
+    "website": "https://tcs.com",
+    "careersPage": "https://careers.tcs.com",
+    "linkedInUrl": "https://linkedin.com/company/tcs",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Data Analyst",
+      "DevOps Engineer",
+      "QA Automation Engineer",
+      "Business Analyst"
+    ],
+    "averageSalary": "8-14 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Resume Screening",
+          "duration": "3-5 days",
+          "tips": "Highlight technical skills and internship projects"
+        },
+        {
+          "step": 2,
+          "name": "Online Assessment",
+          "duration": "1 hour",
+          "tips": "Coding questions, aptitude test, English test"
+        },
+        {
+          "step": 3,
+          "name": "Technical Interview",
+          "duration": "45 mins",
+          "tips": "DSA questions, coding problems, system design"
+        },
+        {
+          "step": 4,
+          "name": "HR Interview",
+          "duration": "30 mins",
+          "tips": "Behavioral questions, motivation, culture fit"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Tell us about a challenging project you've worked on",
+      "Explain your experience with your primary tech stack",
+      "How do you approach problem-solving?",
+      "What are your strengths and weaknesses?",
+      "Why do you want to join TCS?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Rajesh Kumar",
+        "role": "Full Stack Developer",
+        "prepTime": "3 months",
+        "salary": "12 LPA",
+        "story": "Started learning web development online, built 3 projects, practiced coding problems for 2 months, cleared all rounds easily."
+      },
+      {
+        "id": "story_2",
+        "name": "Priya Sharma",
+        "role": "Data Analyst",
+        "prepTime": "2 months",
+        "salary": "10 LPA",
+        "story": "Focused on SQL and Excel, solved 50+ SQL queries, practiced Power BI dashboard creation, got selected in first round."
+      }
+    ]
+  },
+  {
+    "id": "infosys",
+    "name": "Infosys",
+    "tier": "mnc",
+    "hiringStatus": "regular",
+    "logo": "🟦",
+    "website": "https://infosys.com",
+    "careersPage": "https://careers.infosys.com",
+    "linkedInUrl": "https://linkedin.com/company/infosys",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Data Analyst",
+      "DevOps Engineer",
+      "QA Automation Engineer",
+      "Business Analyst",
+      "Cloud Engineer"
+    ],
+    "averageSalary": "8-14 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Online Coding Test",
+          "duration": "90 mins",
+          "tips": "2-3 coding problems, focus on logic and edge cases"
+        },
+        {
+          "step": 2,
+          "name": "Technical Interview",
+          "duration": "45 mins",
+          "tips": "Code explanation, DSA, problem-solving approach"
+        },
+        {
+          "step": 3,
+          "name": "HR Interview",
+          "duration": "30 mins",
+          "tips": "Communication, cultural fit, expectations"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Reverse a string without using built-in functions",
+      "Find the second largest element in array",
+      "Explain object-oriented programming concepts",
+      "Describe your internship experience",
+      "What interests you about Infosys?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Amit Patel",
+        "role": "Backend Developer",
+        "prepTime": "4 months",
+        "salary": "13 LPA",
+        "story": "Learned Java and Spring Boot, completed 5 projects, practiced 100+ LeetCode problems, passed with good marks."
+      }
+    ]
+  },
+  {
+    "id": "wipro",
+    "name": "Wipro",
+    "tier": "mnc",
+    "hiringStatus": "regular",
+    "logo": "🔷",
+    "website": "https://wipro.com",
+    "careersPage": "https://careers.wipro.com",
+    "linkedInUrl": "https://linkedin.com/company/wipro",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Data Analyst",
+      "DevOps Engineer",
+      "QA Automation Engineer",
+      "Business Analyst"
+    ],
+    "averageSalary": "8-14 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Assessment Test",
+          "duration": "75 mins",
+          "tips": "Technical aptitude, coding, verbal reasoning"
+        },
+        {
+          "step": 2,
+          "name": "Technical Interview",
+          "duration": "45 mins",
+          "tips": "Core concepts, coding problems, project discussion"
+        },
+        {
+          "step": 3,
+          "name": "HR Interview",
+          "duration": "30 mins",
+          "tips": "Behavioral fit, salary expectations"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Sort an array of 0s and 1s",
+      "Find duplicate in array",
+      "Explain your strongest programming language",
+      "Tell us about your academic projects",
+      "Where do you see yourself in 5 years?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Sneha Desai",
+        "role": "Frontend Developer",
+        "prepTime": "3 months",
+        "salary": "11 LPA",
+        "story": "Mastered React, CSS, built 4 projects, practiced online assessment questions, smooth interview experience."
+      }
+    ]
+  },
+  {
+    "id": "zoho",
+    "name": "Zoho Corporation",
+    "tier": "product",
+    "hiringStatus": "high",
+    "logo": "🔶",
+    "website": "https://zoho.com",
+    "careersPage": "https://careers.zoho.com",
+    "linkedInUrl": "https://linkedin.com/company/zoho",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Data Analyst",
+      "DevOps Engineer"
+    ],
+    "averageSalary": "12-18 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Screening Interview",
+          "duration": "30 mins",
+          "tips": "Technical background, experience, motivation"
+        },
+        {
+          "step": 2,
+          "name": "Technical Interview 1",
+          "duration": "45 mins",
+          "tips": "DSA, system design for role level"
+        },
+        {
+          "step": 3,
+          "name": "Technical Interview 2",
+          "duration": "45 mins",
+          "tips": "Advanced concepts, architecture decisions"
+        },
+        {
+          "step": 4,
+          "name": "Manager Round",
+          "duration": "30 mins",
+          "tips": "Team fit, growth mindset, leadership"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Design a URL shortener system",
+      "How would you optimize database queries?",
+      "Explain your biggest achievement in previous role",
+      "How do you stay updated with technology?",
+      "Describe a time you handled conflict in team"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Nikhil Verma",
+        "role": "Full Stack Developer",
+        "prepTime": "5 months",
+        "salary": "16 LPA",
+        "story": "Built 5+ production-ready projects, studied system design extensively, strong in both frontend and backend."
+      },
+      {
+        "id": "story_2",
+        "name": "Anjali Singh",
+        "role": "Backend Developer",
+        "prepTime": "4 months",
+        "salary": "15 LPA",
+        "story": "Deep expertise in Java, Spring Boot, database optimization. Passed all rounds with excellent feedback."
+      }
+    ]
+  },
+  {
+    "id": "freshworks",
+    "name": "Freshworks",
+    "tier": "product",
+    "hiringStatus": "high",
+    "logo": "🟢",
+    "website": "https://freshworks.com",
+    "careersPage": "https://careers.freshworks.com",
+    "linkedInUrl": "https://linkedin.com/company/freshworks",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Data Scientist",
+      "DevOps Engineer",
+      "QA Automation Engineer"
+    ],
+    "averageSalary": "12-20 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Initial Screening",
+          "duration": "20 mins",
+          "tips": "Quick call to assess fit and expectations"
+        },
+        {
+          "step": 2,
+          "name": "Take Home Assignment",
+          "duration": "4-5 hours",
+          "tips": "Build a small feature, focus on code quality"
+        },
+        {
+          "step": 3,
+          "name": "Technical Interview",
+          "duration": "60 mins",
+          "tips": "Deep dive on assignment, architecture, problem-solving"
+        },
+        {
+          "step": 4,
+          "name": "Manager + Culture Fit",
+          "duration": "45 mins",
+          "tips": "Growth potential, team collaboration, values alignment"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Walk us through your assignment approach",
+      "How do you handle code reviews?",
+      "What excites you about building products?",
+      "Tell us about a complex problem you solved",
+      "How do you balance speed vs quality?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Vivek Kumar",
+        "role": "Full Stack Developer",
+        "prepTime": "6 months",
+        "salary": "18 LPA",
+        "story": "Strong fundamentals, excellent assignment submission, impressed interviewers with architectural decisions."
+      },
+      {
+        "id": "story_2",
+        "name": "Meera Nair",
+        "role": "Frontend Developer",
+        "prepTime": "4 months",
+        "salary": "16 LPA",
+        "story": "Expertise in React, clean code practices, great communication skills, got offer in 3 weeks."
+      }
+    ]
+  },
+  {
+    "id": "chargebee",
+    "name": "Chargebee",
+    "tier": "product",
+    "hiringStatus": "high",
+    "logo": "🟣",
+    "website": "https://chargebee.com",
+    "careersPage": "https://careers.chargebee.com",
+    "linkedInUrl": "https://linkedin.com/company/chargebee",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Data Analyst",
+      "DevOps Engineer",
+      "Business Analyst"
+    ],
+    "averageSalary": "13-21 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Technical Screening",
+          "duration": "30 mins",
+          "tips": "JS/Java fundamentals, coding basics"
+        },
+        {
+          "step": 2,
+          "name": "Coding Challenge",
+          "duration": "90 mins",
+          "tips": "Real-world problem, multiple test cases"
+        },
+        {
+          "step": 3,
+          "name": "Technical Round",
+          "duration": "60 mins",
+          "tips": "Architecture, scale, optimize discussion"
+        },
+        {
+          "step": 4,
+          "name": "Co-founder/Leadership Chat",
+          "duration": "30 mins",
+          "tips": "Vision, growth ambitions, culture fit"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Design a billing system",
+      "How would you scale this for 1M users?",
+      "Tell us about technical debt handling",
+      "What are your career goals?",
+      "How do you approach learning new tech?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Sanjay Bhat",
+        "role": "Backend Developer",
+        "prepTime": "5 months",
+        "salary": "19 LPA",
+        "story": "Strong systems thinking, great in design discussions, understood business context of billing systems."
+      }
+    ]
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "tier": "global",
+    "hiringStatus": "high",
+    "logo": "🟠",
+    "website": "https://amazon.com",
+    "careersPage": "https://careers.amazon.com",
+    "linkedInUrl": "https://linkedin.com/company/amazon",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Data Scientist",
+      "DevOps Engineer",
+      "Cloud Engineer",
+      "Security Analyst"
+    ],
+    "averageSalary": "15-25 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Phone Screen",
+          "duration": "45 mins",
+          "tips": "DS/Algo problems, communication clear"
+        },
+        {
+          "step": 2,
+          "name": "OA (Online Assessment)",
+          "duration": "90 mins",
+          "tips": "2-3 coding problems, medium-hard difficulty"
+        },
+        {
+          "step": 3,
+          "name": "Technical Interview 1",
+          "duration": "60 mins",
+          "tips": "DS/Algo depth, optimal solutions"
+        },
+        {
+          "step": 4,
+          "name": "Technical Interview 2",
+          "duration": "60 mins",
+          "tips": "System design, scalability, trade-offs"
+        },
+        {
+          "step": 5,
+          "name": "Bar Raiser Round",
+          "duration": "60 mins",
+          "tips": "Leadership principles, growth potential"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Design a distributed caching system",
+      "How would you handle 1M concurrent requests?",
+      "Tell us about a time you took ownership",
+      "How do you measure success?",
+      "Describe your experience with cloud services"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Rohan Desai",
+        "role": "Backend Developer",
+        "prepTime": "8 months",
+        "salary": "22 LPA",
+        "story": "Extensive DS/Algo prep (200+ problems), deep AWS knowledge, great in system design rounds."
+      }
+    ]
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft",
+    "tier": "global",
+    "hiringStatus": "high",
+    "logo": "🔵",
+    "website": "https://microsoft.com",
+    "careersPage": "https://careers.microsoft.com",
+    "linkedInUrl": "https://linkedin.com/company/microsoft",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Cloud Engineer",
+      "DevOps Engineer",
+      "Data Scientist",
+      "Security Analyst"
+    ],
+    "averageSalary": "16-26 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Recruiter Screen",
+          "duration": "30 mins",
+          "tips": "Background, interest, expectations check"
+        },
+        {
+          "step": 2,
+          "name": "Technical Phone Screen",
+          "duration": "45 mins",
+          "tips": "1-2 coding problems, design thinking"
+        },
+        {
+          "step": 3,
+          "name": "Technical Interview 1",
+          "duration": "60 mins",
+          "tips": "Data structures, algorithms, coding"
+        },
+        {
+          "step": 4,
+          "name": "Technical Interview 2",
+          "duration": "60 mins",
+          "tips": "System design, architecture, trade-offs"
+        },
+        {
+          "step": 5,
+          "name": "Manager Round",
+          "duration": "45 mins",
+          "tips": "Team fit, collaboration, growth mindset"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Design a rate limiter",
+      "Optimize a slow query",
+      "Tell us about your biggest achievement",
+      "How do you handle ambiguity?",
+      "What are your thoughts on Azure?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Karanvir Singh",
+        "role": "Full Stack Developer",
+        "prepTime": "6 months",
+        "salary": "23 LPA",
+        "story": "Strong on Azure, practiced system design extensively, clear communication throughout interviews."
+      }
+    ]
+  },
+  {
+    "id": "google",
+    "name": "Google",
+    "tier": "global",
+    "hiringStatus": "regular",
+    "logo": "🔴",
+    "website": "https://google.com",
+    "careersPage": "https://careers.google.com",
+    "linkedInUrl": "https://linkedin.com/company/google",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "Data Scientist",
+      "DevOps Engineer",
+      "Cloud Engineer"
+    ],
+    "averageSalary": "18-28 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Phone Screen",
+          "duration": "45 mins",
+          "tips": "Medium level DS/Algo, communication"
+        },
+        {
+          "step": 2,
+          "name": "Onsite Round 1",
+          "duration": "45 mins",
+          "tips": "Hard DS/Algo, optimize for time and space"
+        },
+        {
+          "step": 3,
+          "name": "Onsite Round 2",
+          "duration": "45 mins",
+          "tips": "System design, real-world problem"
+        },
+        {
+          "step": 4,
+          "name": "Onsite Round 3",
+          "duration": "45 mins",
+          "tips": "Coding + design mix"
+        },
+        {
+          "step": 5,
+          "name": "Behavioral Round",
+          "duration": "30 mins",
+          "tips": "Leadership, teamwork, impact orientation"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Design YouTube",
+      "Optimize search algorithm",
+      "Handle 1B requests per second",
+      "Tell us about your most impactful project",
+      "How do you approach new technologies?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Vedavati Kulkarni",
+        "role": "Backend Developer",
+        "prepTime": "9 months",
+        "salary": "25 LPA",
+        "story": "Intense preparation, 300+ LeetCode problems, great system design knowledge, passed with high feedback."
+      }
+    ]
+  },
+  {
+    "id": "aspire_systems",
+    "name": "Aspire Systems",
+    "tier": "midSize",
+    "hiringStatus": "regular",
+    "logo": "🟡",
+    "website": "https://aspiresys.com",
+    "careersPage": "https://aspiresys.com/careers",
+    "linkedInUrl": "https://linkedin.com/company/aspire-systems",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "DevOps Engineer",
+      "QA Automation Engineer"
+    ],
+    "averageSalary": "10-15 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Technical Test",
+          "duration": "60 mins",
+          "tips": "Basic coding, logic problems"
+        },
+        {
+          "step": 2,
+          "name": "Technical Interview",
+          "duration": "45 mins",
+          "tips": "Project discussion, core concepts"
+        },
+        {
+          "step": 3,
+          "name": "HR Interview",
+          "duration": "30 mins",
+          "tips": "Culture fit, growth expectations"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Explain your recent project",
+      "How comfortable are you with learning?",
+      "Tell us about teamwork experience",
+      "Why Aspire Systems?",
+      "What are your career goals?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Karthik Menon",
+        "role": "Full Stack Developer",
+        "prepTime": "2 months",
+        "salary": "11 LPA",
+        "story": "Good fundamentals, 2 projects portfolio, friendly interview process, got offer quickly."
+      }
+    ]
+  },
+  {
+    "id": "8queens",
+    "name": "8Queens Software",
+    "tier": "sme",
+    "hiringStatus": "occasional",
+    "logo": "⚫",
+    "website": "https://8queens.com",
+    "careersPage": "https://8queens.com/careers",
+    "linkedInUrl": "https://linkedin.com/company/8queens",
+    "rolesHiring": [
+      "Full Stack Developer",
+      "Backend Developer",
+      "Mobile App Developer",
+      "QA Automation Engineer"
+    ],
+    "averageSalary": "8-11 LPA",
+    "hiringProcess": {
+      "steps": [
+        {
+          "step": 1,
+          "name": "Technical Round",
+          "duration": "60 mins",
+          "tips": "Practical coding, real-world scenarios"
+        },
+        {
+          "step": 2,
+          "name": "Founder Chat",
+          "duration": "30 mins",
+          "tips": "Startup culture, passion, learning mindset"
+        }
+      ]
+    },
+    "commonQuestions": [
+      "Build a small feature from scratch",
+      "How do you handle tight deadlines?",
+      "What attracts you to startups?",
+      "Describe your most interesting project",
+      "Are you comfortable with multiple tech stacks?"
+    ],
+    "successStories": [
+      {
+        "id": "story_1",
+        "name": "Aditya Arora",
+        "role": "Full Stack Developer",
+        "prepTime": "1 month",
+        "salary": "9 LPA",
+        "story": "Startup enthusiast, quick learner, great communication, loved the collaborative environment."
+      }
+    ]
+  }
+]
