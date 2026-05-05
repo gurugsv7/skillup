@@ -41,14 +41,14 @@ const CompanyDiscoveryView: React.FC<Props> = ({ role, onSelectCompany, onBack }
     let result = mappedCompanies;
     
     if (activeTab !== 'ALL') {
-      result = result.filter(c => {
-        const tierMap: { [key: string]: string } = {
-          'FAANG': 'mnc',
-          'PRODUCT': 'product',
-          'STARTUP': 'startup'
-        };
-        return c.category === activeTab;
-      });
+      // Map activeTab to the corresponding category value
+      const tabToCategoryMap: { [key: string]: string } = {
+        'MNC': 'FAANG',
+        'PRODUCT': 'PRODUCT',
+        'STARTUP': 'STARTUP'
+      };
+      const targetCategory = tabToCategoryMap[activeTab];
+      result = result.filter(c => c.category === targetCategory);
     }
     
     // Show all companies in the filtered category (regardless of hiring status)
