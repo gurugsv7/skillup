@@ -1,7 +1,7 @@
 [build]
 command = "npm ci && npm run build"
-publish = "dist"
 functions = "netlify/functions"
+publish = "dist"
 
 [build.environment]
 NODE_VERSION = "22"
@@ -12,36 +12,3 @@ CI = "true"
 from = "/*"
 to = "/index.html"
 status = 200
-
-[context.production]
-command = "npm install && npm run build"
-publish = "dist"
-
-[context.deploy-preview]
-command = "npm install && npm run build"
-publish = "dist"
-
-[context.branch-deploy]
-command = "npm install && npm run build"
-publish = "dist"
-
-# Cache settings
-[[headers]]
-for = "/assets/*"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*.html"
-[headers.values]
-Cache-Control = "public, max-age=3600"
-
-[[headers]]
-for = "/*.js"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*.css"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"

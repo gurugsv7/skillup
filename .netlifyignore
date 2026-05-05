@@ -1,6 +1,5 @@
 .git
 .gitignore
-node_modules
 npm-debug.log
 .DS_Store
 .env.local
@@ -19,8 +18,6 @@ START_HERE.md
 UPDATE_SUMMARY.md
 CLAUDE_RESEARCH_PROMPT.md
 CLAUDE_RESEARCH_PROMPT_DATA_ONLY.md
-files/
-database/
 .vscode/
 vercel.json
 .vercelignore
